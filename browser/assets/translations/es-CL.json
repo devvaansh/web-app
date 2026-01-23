@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "Mifos X",
+  "APP_NAME": "Mifos® X WebApp",
   "Logged in as": "Conectado como",
   "Remember me": "Recordar me",
   "errors": {
@@ -81,6 +81,7 @@
     "validation.msg.loan.principal.is.greater.than.max": "El importe principal {{params[0].value}} no es válido. Debe ser un monto menor o igual al monto principal máximo {{params[1].value}}.",
     "validation.msg.loan.principal.is.less.than.min": "El importe principal {{params[0].value}} no es válido. Debe ser un monto mayor o igual al monto mínimo de capital {{params[1].value}}.",
     "validation.msg.loanproduct.accountingType.cannot.be.blank": "El tipo de contabilidad es obligatorio.",
+    "labels.commons.Only up to 6 decimal places allowed": "Solo se permiten hasta 6 decimales.",
     "validation.msg.loanproduct.accountingType.is.not.within.expected.range": "El tipo de contabilidad no es válido. Debe ser un número entre {{params[1].value}} y {{params[2].value}} inclusive.",
     "validation.msg.loanproduct.allowPartialPeriodInterestCalculation.not.supported.for.daily.calculations": "Permitir el cálculo de cuotas parciales no se puede establecer como verdadero para el cálculo diario",
     "validation.msg.loanproduct.allowVariableInstallments.not.supported.for.selected.interest.calculation.type": "La cuota variable debe usarse con el cálculo de interés diario o permitir el cálculo de interés parcial.",
@@ -283,6 +284,15 @@
     "validation.msg.savingsproduct.withdrawalFeeType.is.not.one.of.expected.enumerations": "El tipo de período de comisión de retiro es obligatorio."
   },
   "labels": {
+    "version": {
+      "Tenant": "Instancia",
+      "Mifos WebApp": "Mifos® WebApp",
+      "Apache Fineract": "Apache Fineract®",
+      "Server": "Servidor",
+      "Username": "Nombre de usuario",
+      "Name": "Nombre",
+      "Render Time": "Tiempo de renderizado"
+    },
     "accounting": {
       "Accrual (periodic)": "Devengo (periódico)",
       "Accrual (upfront)": "Devengo (adelantado)",
@@ -441,10 +451,13 @@
       "Import Client": "Importar cliente",
       "Import Employees": "Importar empleados",
       "Import Group": "Importar grupo",
+      "Import Loan Product": "Importar producto de préstamo",
       "Import Offices": "Oficinas de Importación",
+      "Import": "Importar",
       "Initiate Dividend": "Iniciar dividendo",
       "Link Job Step": "Agregar tarea a proceso",
       "Login": "Acceso",
+      "Select a JSON file containing the loan product definition": "Seleccione un archivo JSON que contenga la definición del producto de préstamo",
       "Manage Groups": "Administrar grupos",
       "Manage Members": "Administrar miembros",
       "Month": "Mes",
@@ -504,6 +517,7 @@
       "Select All": "Seleccionar todo",
       "Show more": "Mostrar más",
       "Show less": "Muestra menos",
+      "Signing in...": "Iniciando sesión",
       "Staff": "Asesor",
       "Staff Assignment History": "Historial de asignaciones de asesor",
       "Subledger Account": "Cuenta auxiliar",
@@ -540,7 +554,8 @@
       "Withdraw": "Retirar",
       "View Active Charges": "Ver Comisiones Activas",
       "View Inactive Charges": "Ver Comisiones inactivas",
-      "Yes": "Sí"
+      "Yes": "Sí",
+      "Is Self Service": "Es usuario de autoservicio"
     },
     "catalogs": {
       "Interest payment waiver": "Exención de pago de intereses",
@@ -854,12 +869,22 @@
       "Password validation": "La contraseña debe contener un mínimo de {{minchar}} caracteres, que deben incluir 1 carácter mayúscula, minúscula y especial y no debe constar de caracteres repetidos ni espacios en blanco.",
       "Must be at least": "Debe ser al menos",
       "Must be less or equal to": "Debe ser menor o igual a",
-      "must be after or equal to start date": "debe ser posterior o igual a la fecha de inicio"
+      "must be after or equal to start date": "debe ser posterior o igual a la fecha de inicio",
+      "No classification data available": "No hay datos de clasificación disponibles",
+      "No": "No",
+      "Yes": "Sí"
     },
     "passwordPreferences": {
+      "Password most be at least 1 character and not more that 50 characters long": "La contraseña debe tener al menos 1 carácter y no más de 50 caracteres",
       "Password must be at least 1 character and not more than 50 characters long": "La contraseña debe tener al menos 1 carácter y no más de 50 caracteres",
       "Password must be at least 6 characters, no more than 50 characters long, must include at least one upper case letter, one lower case letter, one numeric digit and no space": "La contraseña debe tener al menos 6 caracteres, no más de 50 caracteres, debe incluir al menos una letra mayúscula, una letra minúscula, un dígito numérico y ningún espacio",
       "Password must be 12 to 50 characters long, containing at least one uppercase letter, one lowercase letter, one numeric digit, and one special character, with no spaces or consecutive repeating characters": "La contraseña debe tener entre 12 y 50 caracteres, conteniendo al menos una letra mayúscula, una letra minúscula, un dígito numérico y un carácter especial, sin espacios ni caracteres repetidos consecutivos"
+    },
+    "conditions": {
+      "LessThan": "Menor que",
+      "Equal": "Igual",
+      "GreaterThan": "Mayor que",
+      "NotEqual": "No igual"
     },
     "heading": {
       "Account Linked Financial": "Listado de cuentas vinculadas a diferentes actividades financieras. Para saber más haga clic en:",
@@ -933,7 +958,7 @@
       "Configure Maker Checker Tasks": "Configurar tareas de Realizador Aprobador",
       "Configure Maker-Checker Tasks": "Configurar tareas de Realizador Aprobador",
       "Customer Attributes": "Atributos personalizados",
-      "Configure Mifos Organization Needs": "La siguiente guía le ayudará a configurar Mifos según las necesidades de su organización.",
+      "Configure Mifos Organization Needs": "La siguiente guía le ayudará a configurar Mifos® según las necesidades de su organización.",
       "Create Charge": "Crear Comisión",
       "Create Closure": "Crear Cierre",
       "Create Code": "Crear Código",
@@ -1037,7 +1062,7 @@
       "Keyboard Shortcuts": "Atajos de teclado",
       "Last Active": "Último Activo",
       "Liabilities": "Pasivo",
-      "List of all codes in the Mifos system": "Lista de todos los códigos del sistema Mifos para su organización.",
+      "List of all codes in the Mifos system": "Lista de todos los códigos del sistema Mifos® para su organización.",
       "List of all currently available data tables": "Lista de todas las tablas de datos disponibles actualmente.",
       "List of all currently available reports": "Lista de todos los reportes disponibles actualmente. Para más detalles haga clic",
       "List of all maker checker tasks": "Lista de todas las tareas para Realizador Aprobador. Para más detalles haga clic",
@@ -1107,6 +1132,7 @@
       "Offices": "Oficinas",
       "Options": "Opciones",
       "Other Details": "Otros detalles",
+      "Overdue": "Vencido",
       "Overdue Charges": "Comisiones Moratorias",
       "Password Preferences": "Preferencias de contraseña",
       "Payment Type": "Tipo de pago",
@@ -1216,7 +1242,7 @@
       "View Client Signature": "Ver firma del cliente",
       "View Journal Entry": "Ver entrada de diario",
       "Waive Charge": "Renunciar a Comisión",
-      "Welcome to Mifos": "Bienvenido a Mifos",
+      "Welcome to Mifos": "Bienvenido a Mifos®",
       "WriteOff reasons to Expense accounts": "Razones de cancelación de cuentas de gastos",
       "Withdraw Money From Saving Account": "Retirar dinero de una cuenta de ahorro",
       "Withhold Tax": "Retener el impuesto",
@@ -1241,7 +1267,18 @@
       "Not Yet Amortized Amount": "Monto aun no amortizado",
       "Adjusted Amount": "Importe ajustado",
       "Charged Off Amount": "Importe cancelado",
-      "Date": "Fecha"
+      "Date": "Fecha",
+      "Secure & Reliable": "Seguro y Confiable",
+      "Community Driven": "Impulsado por la Comunidad",
+      "Global Impact": "Impacto Global",
+      "Personal Information": "Información Personal",
+      "Account Information": "Información de la Cuenta",
+      "Entity Details": "Detalles de la Entidad",
+      "Group Membership": "Membresía del Grupo",
+      "Important Dates": "Fechas Importantes",
+      "Contact Information": "Información de Contacto",
+      "Classification": "Clasificación",
+      "Status": "Estado"
     },
     "inputs": {
       "accounting": {
@@ -1251,6 +1288,9 @@
         "INCOME": "INGRESO",
         "EXPENSE": "EGRESO"
       },
+      "Basic": "Básico",
+      "Standard": "Estándar",
+      "Strong": "Fuerte",
       "ACCOUNTING": "CONTABILIDAD",
       "Percentage is required": "Se requiere porcentaje",
       "ADDRESS": "DOMICILIO",
@@ -1450,6 +1490,8 @@
       "Client Principal Loan": "Crédito principal del cliente",
       "Create standing instructions at disbursement": "Crear instrucciones permanentes en el curso",
       "Client Screen Reports": "Reportes de pantalla del cliente",
+      "Personal Data": "Datos Personales",
+      "CLIENT STATUS": "ESTADO DEL CLIENTE",
       "Client Trends": "Tendencias del cliente",
       "Client Type": "Tipo de cliente",
       "Client first name": "Nombre del cliente",
@@ -2163,6 +2205,7 @@
       "Amount Range From": "Monto desde",
       "Amount Range To": "Monto hasta",
       "Person": "Persona",
+      "Client Status": "Estado del Cliente",
       "Phone Number": "Número de teléfono",
       "Place Guarantee Funds On-Hold": "Poner los fondos de garantía en espera",
       "Port": "Puerto",
@@ -2359,6 +2402,7 @@
       "Show Closed Centers": "Mostrar Centros Cerrados",
       "Show Closed Groups": "Mostrar grupos cerrados",
       "Show Payment Details": "Mostrar detalles de pago",
+      "Waive Penalties": "Renunciar a Penalizaciones",
       "Slab": "Tramo",
       "Specific to Installment": "Específico para la cuota",
       "Staff": "Asesor",
@@ -2721,7 +2765,9 @@
     },
     "placeholders": {
       "Add new server": "Agregar nuevo servidor",
-      "Search Activity": "Actividad de búsqueda"
+      "Search Activity": "Actividad de búsqueda",
+      "Enter your username": "Ingrese su nombre de usuario",
+      "Enter your password": "Ingrese su contraseña"
     },
     "status": {
       "Active": "Activo",
@@ -2769,6 +2815,7 @@
     },
     "text": {
       "A": "Una",
+      "Account Transfers": "Transferencias entre cuentas",
       "Ability to manage holidays for individual offices": "La capacidad de gestionar días festivos para oficinas individuales es una herramienta muy útil para una organización que abarca varias ubicaciones. Utilice esta opción para personalizar los días festivos para cada oficina de su organización.",
       "Account Detail": "Detalle de cuenta",
       "Account Number Preferences": "Preferencias de número de cuenta",
@@ -2793,6 +2840,7 @@
       "Add, modify or inactivate a Fixed deposit product": "Agregar, modificar o desactivar un producto de Depósito Fijo",
       "Add, modify or inactivate a Recurring Deposit product": "Agregar, modificar o desactivar un producto de Depósito Recurrente",
       "Address": "Domicilio",
+      "Personal Data": "Datos Personales",
       "Adhoc Query": "Consulta ad hoc",
       "Advance Search": "Búsqueda Avanzada",
       "Advanced search option for journal entries": "Opción de búsqueda avanzada para entradas de diario",
@@ -2909,7 +2957,6 @@
       "Create Recurring Deposits Account": "Crear cuenta de depósitos recurrentes",
       "Create Report": "Crear reporte",
       "Create SMS Campaign": "Crear campaña de SMS",
-      "Create Savings Product": "Crear producto de ahorro",
       "Create Savings Account": "Crear Cuenta de Ahorros",
       "Create Self Service User": "Crear usuario de autoservicio",
       "Create Share Product": "Crear producto de Acciones",
@@ -3055,7 +3102,7 @@
       "Fixed Deposit Account Charges": "Comisiones de cuenta de Depósito Fijo",
       "Filter by name": "Filtrar por nombre",
       "FilterByLoanIdOrError": "Filtrar por ID de préstamo o error",
-      "Fineract": "Fineract",
+      "Fineract": "Apache Fineract®",
       "Fixed Deposit Account Interest Rate Chart": "Tabla de tasas de interés de cuentas de Depósito Fijo",
       "Fixed Deposit Account Standing Instructions": "Instrucciones para la situación de la cuenta de Depósito Fijo",
       "Fixed Deposit Account Transactions": "Transacciones de cuenta de Depósito Fijo",
@@ -3155,7 +3202,7 @@
       "Manage your Services": "Gestiona tus servicios",
       "Manual journal entry transactions recorded in a journal": "Transacciones de asiento de diario manuales registradas en un diario",
       "Message Gateway": "Puerta de enlace de mensajes",
-      "Mifos Initiative": "Iniciativa Mifos",
+      "Mifos Initiative": "Iniciativa Mifos®",
       "Mifos X data-tables allow the user to add custom fields": "Las tablas de datos de Mifos X permiten al usuario agregar campos personalizados además de los campos integrados a un perfil de cliente, cuenta de Crédito/ahorro, grupo, centro u oficina.",
       "Migrate Opening Balances": "Migrar saldos de apertura",
       "Modify Loans Account": "Modificar cuenta de Créditos",
@@ -3170,6 +3217,7 @@
       "No checker inbox data available for this search": "No hay datos de la bandeja de entrada del verificador disponibles para esta búsqueda.",
       "No client was found": "No se encontró ningún cliente",
       "No data found": "Datos no encontrados",
+      "No penalties found": "No se encontraron penalizaciones",
       "NoDocuments": "No hay documentos disponibles.",
       "NoFileSelected": "No se ha seleccionado ningún archivo",
       "NoNotesAvailable": "No hay notas disponibles",
