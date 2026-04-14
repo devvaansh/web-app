@@ -6,8 +6,8 @@
     "accountingRule": {
       "duplicateName": "Atvainojiet, bet grāmatvedības noteikums ar šo nosaukumu jau pastāv."
     },
-    "error.resource.notImplemented.type": "Neieviesta kļūda",
-    "error.resource.notImplemented.message": "Funkcionalitāte nav ieviesta!",
+    "error.resource.notImplemented.type": "Nav ieviests",
+    "error.resource.notImplemented.message": "Neieviesta funkcionalitāte!",
     "linkedSavingsAccountOwnership": "Saistītais krājkonts nepieder izvēlētajam klientam.",
     "clientNotInGSIM": "Klients ar ID {{id}} nav GSIM sistēmā.",
     "Capitalized Income amount adjusted already adjusted": "Kapitalizēto ienākumu summa jau koriģēta",
@@ -21,6 +21,7 @@
     "Username is required": "Nepieciešams lietotājvārds",
     "Username or password incorrect.": "Lietotājvārds vai parole ir nepareiza",
     "kycReportLoadError": "Neizdevās ielādēt KYC PDF pārskatu.",
+    "validationSaveError": "Neizdevās saglabāt validācijas datus. Lūdzu, mēģiniet vēlreiz.",
     "error.msg.charge.attach.to.savings.product.invalid.currency": "Maksas un ietaupījumu produktam ir jābūt vienādai valūtai.",
     "error.msg.charge.cannot.be.applied.to.savings.product": "Maksa ar identifikatoru `{{params[0].value}} nevar tikt piemērota krājproduktam.",
     "error.msg.charge.cannot.be.deleted.it.is.already.used.in.loan": "Šo maksu nevar dzēst, jo tā jau ir saistīta ar aizdevuma produktu un/vai aizdevumu.",
@@ -82,6 +83,8 @@
     "validation.msg.loan.principal.is.greater.than.max": "Pamatsumma {{params[0].value}} nav derīga. Jābūt summai, kas ir mazāka vai vienāda ar maksimālo pamatsummu {{params[1].value}}.",
     "validation.msg.loan.principal.is.less.than.min": "Pamatsumma {{params[0].value}} nav derīga. Jābūt summai, kas ir lielāka vai vienāda ar minimālo pamatsummu {{params[1].value}}.",
     "validation.msg.loanproduct.accountingType.cannot.be.blank": "Uzskaites veids ir obligāts.",
+    "labels.alt.Center profile placeholder": "Centra profila aizpildītājs",
+    "labels.alt.Group profile placeholder": "Grupas profila aizpildītājs",
     "labels.commons.Only up to 6 decimal places allowed": "Atļauts tikai līdz 6 zīmēm aiz komata.",
     "validation.msg.loanproduct.accountingType.is.not.within.expected.range": "Uzskaites veids nav derīgs. Jābūt skaitlim starp {{params[1].value}} un {{params[2].value}} ieskaitot.",
     "validation.msg.loanproduct.allowPartialPeriodInterestCalculation.not.supported.for.daily.calculations": "Atļaut daļējas iemaksas aprēķinu nevar iestatīt kā patiesu ikdienas aprēķinam",
@@ -282,9 +285,143 @@
     "validation.msg.savingsproduct.shortName.exceeds.max.length": "Īsā nosaukuma garums nedrīkst pārsniegt {{params[0].value}} rakstzīmes.",
     "validation.msg.savingsproduct.withdrawalFeeAmount.cannot.be.blank": "Izņemšanas maksas summa ir obligāta.",
     "validation.msg.savingsproduct.withdrawalFeeAmount.not.zero.or.greater": "Izņemšanas maksas summai ir jābūt lielākai par nulli vai vienādai ar to, ja tāda ir paredzēta.",
-    "validation.msg.savingsproduct.withdrawalFeeType.is.not.one.of.expected.enumerations": "Izņemšanas maksas perioda veids ir obligāts."
+    "validation.msg.savingsproduct.withdrawalFeeType.is.not.one.of.expected.enumerations": "Izvēlētais izņemšanas maksas veids nav derīgs.",
+    "http": {
+      "connection": {
+        "title": "Savienojuma kļūda",
+        "message": "Nevar izveidot savienojumu ar serveri. Lūdzu, pārbaudiet interneta savienojumu."
+      },
+      "badRequest": {
+        "title": "Nederīgs pieprasījums",
+        "message": "Lūdzu, pārbaudiet ievadītos datus un mēģiniet vēlreiz."
+      },
+      "unauthorized": {
+        "title": "Nav autorizēts",
+        "message": "Jūsu sesija ir beigusies. Lūdzu, piesakieties vēlreiz.",
+        "action": "Pieteikties"
+      },
+      "forbidden": {
+        "title": "Piekļuve liegta",
+        "message": "Jums nav atļaujas veikt šo darbību."
+      },
+      "notFound": {
+        "title": "Nav atrasts",
+        "message": "Pieprasītais resurss nav atrasts.",
+        "contextMessage": "{{context}} nav atrasts."
+      },
+      "conflict": {
+        "title": "Konflikts",
+        "message": "Resurss jau pastāv vai ir konflikts."
+      },
+      "serverError": {
+        "title": "Servera kļūda",
+        "message": "Radās neparedzēta kļūda. Lūdzu, mēģiniet vēlāk."
+      },
+      "serviceUnavailable": {
+        "title": "Pakalpojums nav pieejams",
+        "message": "Pakalpojums īslaicīgi nav pieejams. Lūdzu, mēģiniet vēlāk."
+      },
+      "default": {
+        "title": "Kļūda",
+        "message": "Radās neparedzēta kļūda."
+      }
+    },
+    "interceptor": {
+      "invalidParams": "Pieprasījumā tika nodoti nederīgi parametri!"
+    },
+    "auth": {
+      "pleaseWait": "Lūdzu, uzgaidiet...",
+      "startType": "Autentifikācijas sākums",
+      "twoFactor": {
+        "type": "Nepieciešama divu faktoru autentifikācija",
+        "message": "Nepieciešama divu faktoru autentifikācija"
+      },
+      "passwordExpired": {
+        "type": "Parole ir beigusies",
+        "message": "Jūsu parole ir beigusies, lūdzu, atjaunojiet paroli!"
+      },
+      "success": {
+        "type": "Autentifikācija veiksmīga",
+        "message": "{{username}} veiksmīgi pieteicies!"
+      },
+      "passwordReset": {
+        "type": "Parole veiksmīgi atjaunota",
+        "message": "Jūsu parole tika veiksmīgi atjaunota!"
+      },
+      "callbackFailed": {
+        "type": "Autentifikācija neizdevās",
+        "message": "Neizdevās pabeigt autentifikāciju. Lūdzu, mēģiniet vēlreiz."
+      },
+      "callbackError": {
+        "type": "Autentifikācijas kļūda",
+        "message": "Autentifikācijas laikā radās kļūda. Lūdzu, mēģiniet vēlreiz."
+      }
+    },
+    "hooks": {
+      "lastEvent": "Nepieciešams vismaz viens notikums. Nevar dzēst pēdējo notikumu."
+    },
+    "generic": {
+      "unexpected": "Radās kļūda. Lūdzu, mēģiniet vēlreiz.",
+      "unexpectedRetry": "Radās neparedzēta kļūda. Lūdzu, mēģiniet vēlreiz.",
+      "unexpectedShort": "Radās neparedzēta kļūda."
+    },
+    "holiday": {
+      "invalidDate": "Izvēlēts nederīgs datums. Lūdzu, izvēlieties derīgu datumu.",
+      "invalidRepaymentDate": "Nederīgs atmaksas pārplānošanas datums. Lūdzu, izvēlieties derīgu datumu."
+    },
+    "report": {
+      "type": "Atskaites ģenerēšana",
+      "generated": "Atskaite: {{reportName}} dati ģenerēti",
+      "generatedNoData": "Atskaite: {{reportName}} ģenerēta bez datiem"
+    },
+    "clipboard": {
+      "type": "Starpliktuve",
+      "copied": "Nokopēts: {{value}}"
+    },
+    "tenant": {
+      "changed": {
+        "type": "Nomnieks mainīts"
+      }
+    },
+    "config": {
+      "setConfig": "{{type}} konfigurācija iestatīta"
+    },
+    "loans": {
+      "undoWriteOff": {
+        "type": "Norakstīšanas atcelšana neizdevās",
+        "message": "Apstrādājot norakstīšanas atcelšanu, radās kļūda. Lūdzu, mēģiniet vēlreiz vai sazinieties ar atbalstu."
+      },
+      "alreadyAdjusted": "Kapitalizēto ienākumu summa jau koriģēta",
+      "adjustment": "Korekcija {{type}} Darījums",
+      "capitalizedIncomeLimit": "Kapitalizēto ienākumu korekcijas summai jābūt mazākai vai vienādai ar",
+      "buyDownFeeAdjusted": "Buy Down maksas summa jau koriģēta",
+      "buyDownFeeLimit": "Buy Down maksas korekcijas summai jābūt mazākai vai vienādai ar",
+      "businessRule": "Biznesa noteikums",
+      "alertWithAmount": "{{label}}: {{amount}}"
+    },
+    "error.auth.type": "Autentifikācijas kļūda",
+    "error.auth.message": "Jūsu sesija ir beigusies vai akreditācijas dati nav derīgi.",
+    "error.token.invalid.type": "Nederīgs tokens",
+    "error.token.invalid.message": "Norādītais vienreizējais tokens nav derīgs.",
+    "error.bad.request.type": "Nepareizs pieprasījums",
+    "error.bad.request.message": "Pieprasījumā tika nodoti nederīgi parametri!",
+    "error.unauthorized.type": "Nav autorizēts",
+    "error.unauthorized.message": "Jūsu sesija ir beigusies vai akreditācijas dati nav derīgi.",
+    "error.resource.not.found.type": "Resurss nav atrasts",
+    "error.resource.not.found.message": "Pieprasītais resurss nav atrasts.",
+    "error.server.internal.type": "Iekšēja servera kļūda",
+    "error.server.internal.message": "Serverī radās neparedzēta kļūda. Lūdzu, mēģiniet vēlāk.",
+    "error.unknown.type": "Nezināma kļūda",
+    "error.unknown.message": "Radās neparedzēta kļūda.",
+    "validation.required": "Šis lauks ir obligāts",
+    "validation.minLength": "Minimālais garums ir {{requiredLength}}",
+    "validation.emailInvalid": "E-pasts nav derīgs",
+    "validation.requiredField": "{{label}} ir obligāts lauks.",
+    "validation.mustBeAtLeast": "{{field}} jābūt vismaz {{min}}",
+    "validation.mustBePositive": "{{field}} jābūt pozitīvam skaitlim."
   },
   "labels": {
+    "Mifos Reporting Plugin for Eclipse Birt": "Mifos Reporting Plugin for Eclipse Birt",
     "version": {
       "Tenant": "Nomnieks",
       "Mifos WebApp": "Mifos® WebApp",
@@ -306,7 +443,7 @@
     },
     "aboutUs": {
       "Introduction": "Mifos iniciatīva ir 501(c)(3) bezpeļņas organizācija un globāla izstrādātāju, finanšu iestāžu un sociālo uzņēmēju kopiena. Mēs ticam, ka piekļuve finanšu pakalpojumiem ir pamata cilvēktiesības, tomēr miljardiem cilvēku joprojām ir izslēgti no formālās finanšu sistēmas.",
-      "Platform Description": "Mēs pārvaramam šo plaisu, nodrošinot <a href=\"https://mifos.org\" target=\"_blank\" rel=\"noopener noreferrer\">Mifos X platformu</a>\u2014pasaulē vadošo atvērtā koda pamata banku sistēmu. Padarot uzņēmuma līmeņa banku tehnoloģiju bezmaksas un pieejamu, mēs samazinām ieejas barjeras Mikrofinanšu iestādēm (MFI), Fintech un NVO, ļaujot tām paplašināt savu ietekmi un efektīvi apkalpot \"pēdējo jūdzi\".",
+      "Platform Description": "Mēs pārvaramam šo plaisu, nodrošinot <a href=\"https://mifos.org\" target=\"_blank\" rel=\"noopener noreferrer\">Mifos X platformu</a>—pasaulē vadošo atvērtā koda pamata banku sistēmu. Padarot uzņēmuma līmeņa banku tehnoloģiju bezmaksas un pieejamu, mēs samazinām ieejas barjeras Mikrofinanšu iestādēm (MFI), Fintech un NVO, ļaujot tām paplašināt savu ietekmi un efektīvi apkalpot \"pēdējo jūdzi\".",
       "Mission": "Paātrināt finanšu iekļaušanu, katalizējot atvērtā koda tehnoloģiju, kopienas un zināšanu apmaiņas ekosistēmu.",
       "Vision": "Pasaule, kurā katram indivīdam un mazajam uzņēmumam ir pieejami finanšu instrumenti, kas nepieciešami, lai plauktu, neatkarīgi no to atrašanās vietas vai ienākumu līmeņa.",
       "Why Open Source": "Mēs izvēlējāmies atvērtā koda modeli, jo ticam, ka finanšu infrastruktūrai jābūt:",
@@ -370,6 +507,7 @@
       "Add Role": "Pievienot lomu",
       "Add Rule": "Pievienot noteikumu",
       "Add Slab": "Pievienot plāksni",
+      "Add Range": "Pievienot diapazonu",
       "Add/Edit": "Pievienot/rediģēt",
       "Adjustment": "Pielāgošana",
       "Advanced Options": "Papildu opcijas",
@@ -474,7 +612,11 @@
       "Export to File": "Eksportēt uz failu",
       "Export CSV": "Eksportēt CSV",
       "Export XLS": "Eksportēt XLS",
+      "Export to PDF": "Eksportēt kā PDF",
       "Export KYC": "Eksportēt KYC",
+      "Validate Documentation": "Validēt dokumentāciju",
+      "INCOMPLETE": "NEPABEIGTS",
+      "COMPLETE": "PABEIGTS",
       "Filter": "filtrēt",
       "Foreclosure": "Preces ierobežošana",
       "GLIM Application": "GLIM aizdevuma pieteikums",
@@ -610,7 +752,8 @@
       "Retry": "Mēģināt vēlreiz",
       "PRINT": "Drukāt",
       "DONE": "Gatavs",
-      "Submitting": "Iesniedz"
+      "Submitting": "Iesniedz",
+      "OK": "Labi"
     },
     "catalogs": {
       "Interest payment waiver": "Atteikšanās no procentu maksājumiem",
@@ -877,7 +1020,12 @@
       "move to next working day": "pārvietot uz nākamo darba dienu",
       "move to next repayment meeting day": "pārvietot uz nākamo atmaksas sanāksmes dienu",
       "move to previous working day": "pārvietot uz iepriekšējo darba dienu",
-      "move to next meeting day": "pārvietot uz nākamo sanāksmes dienu"
+      "move to next meeting day": "pārvietot uz nākamo sanāksmes dienu",
+      "Working Capital": "Apgrozāmie līdzekļi",
+      "DAYS": "DIENAS",
+      "MONTHS": "MĒNEŠI",
+      "YEARS": "GADI",
+      "Loan Creation": "Aizdevuma izveide"
     },
     "commons": {
       "50 characters long": "50 rakstzīmes garš",
@@ -903,7 +1051,9 @@
       "do not match": "nesakrīt",
       "does not match": "nesakrīt",
       "greater equal to than 0": "lielāks, vienāds ar 0",
+      "higher than allowed": "augstāk nekā atļauts",
       "invalid": "nederīgs",
+      "Invalid amount format": "Nederīgs summas formāts",
       "is": "ir",
       "Is": "Ir",
       "is required": "ir nepieciešams",
@@ -923,6 +1073,7 @@
       "on": "ieslēgts",
       "every": "katru",
       "Password validation": "Parolē jābūt vismaz {{minchar}} rakstzīmēm, tai jābūt 1 lielajam, mazajam un speciālajām rakstzīmēm, un tā nedrīkst sastāvēt no atkārtotām rakstzīmēm vai atstarpēm.",
+      "Must be a positive integer": "Jābūt pozitīvam veselam skaitlim",
       "Must be at least": "Jābūt vismaz",
       "Must be less or equal to": "Jābūt mazākam vai vienādam ar",
       "must be after or equal to start date": "jābūt pēc sākuma datuma vai vienādam ar to",
@@ -983,6 +1134,7 @@
       "Beneficiary": "Saņēmējs",
       "Beneficiary Selection": "Saņēmēja izvēle",
       "Block Savings Account": "Bloķēt krājkontu",
+      "Breach Configuration": "Pārkāpuma konfigurācija",
       "Bulk Import": "Lielapjoma importēšana",
       "Bulk Loan Reassignment": "Lielapjoma aizdevuma pārcelšana",
       "Business Rule Parameters": "Biznesa noteikumu parametri",
@@ -1122,6 +1274,7 @@
       "Interest Recalculation": "Procentu pārrēķins",
       "Interest Transfer": "Procentu pārskaitījums",
       "It is required to add at least one Slab": "Ir jāpievieno vismaz viena plāksne",
+      "It is required to add at least one Range": "Ir jāpievieno vismaz viens diapazons",
       "Journal Entries": "Dienasgrāmatas ieraksti",
       "Keyboard Shortcuts": "Tastatūras īsinājumtaustiņi",
       "Last Active": "Pēdējā aktīva",
@@ -1145,6 +1298,7 @@
       "List of Users with their details": "Lietotāju saraksts ar viņu informāciju",
       "Loan Account OverView": "Aizdevuma konta pārskats",
       "Loan Accounts": "Aizdevuma konti",
+      "Loan Amounts": "Aizdevuma summas",
       "Loan Delinquency Actions": "Aizdevuma likumpārkāpumu darbības",
       "Loan Delinquency Classification": "Aizdevumu likumpārkāpumu klasifikācija",
       "Loan Delinquency Tags": "Aizdevuma kavējuma birkas",
@@ -1353,6 +1507,7 @@
       "Community Driven": "Kopienas vadīts",
       "Global Impact": "Globālā ietekme",
       "Personal Information": "Personīgā informācija",
+      "Do you want to mark the Customer Data as valid?": "Vai vēlaties atzīmēt klienta datus kā derīgus?",
       "Account Information": "Konta informācija",
       "Entity Details": "Uzņēmuma detaļas",
       "Group Membership": "Grupas biedrība",
@@ -1540,6 +1695,7 @@
       "Beneficiary": "Saņēmējs",
       "Branch": "Filiāle",
       "Branch Office": "Filiāle",
+      "Breach": "Pārkāpums",
       "Breakdown": "Saplīst",
       "Boolean": "Būla",
       "Business Date": "Darba datums",
@@ -1748,6 +1904,9 @@
       "Delinquency Action": "Likumpārkāpums",
       "Delinquency Bucket": "Noziedzības spainis",
       "Delinquency Classification": "Noziedzības klasifikācija",
+      "Delinquency Payment Rule": "Kavējuma maksājuma noteikums",
+      "Delinquency Grace Days": "Nokavējuma atvieglojumu dienas",
+      "Delinquency Start Type": "Kavējuma sākuma veids",
       "Delinquency Tags": "Noziedzības tagi",
       "Delinquent Days": "Noziedznieku dienas",
       "Delivery Method": "Piegāde metode",
@@ -1782,6 +1941,8 @@
       "Disbursement Date": "Izmaksas datums",
       "Disbursement On": "Izmaksa ieslēgta",
       "Disbursement on": "Izmaksa ieslēgta",
+      "Discount": "Atlaide",
+      "Discount must be greater than or equal to 0": "Atlaidei jābūt lielākai vai vienādai ar 0",
       "Display Name": "Parādāmais nosaukums",
       "Dividend Amount": "Dividenžu summa",
       "Dividend Period End Date": "Dividenžu perioda beigu datums",
@@ -1815,6 +1976,7 @@
       "Enable Down Payment": "Iespējot pirmo iemaksu",
       "Enable Lock-in Period": "Iespējot bloķēšanas periodu",
       "Enable Multiple Disbursals": "Iespējot vairākas izmaksas",
+      "Enable Near Breach": "Iespējot tuvo pārkāpumu",
       "Enabled": "Iespējots",
       "End Date": "Beigu datums",
       "End Point": "Beigu punkts",
@@ -2183,6 +2345,8 @@
       "Minimum Guarantee from Own Funds(%)": "Minimālā garantija no pašu līdzekļiem (%)",
       "Minimum Opening Balance": "Minimālais sākuma atlikums",
       "Minimum Overdraft Required for Interest Calculation": "Nepieciešamais minimālais overdrafts procentu aprēķināšanai",
+      "Minimum Payment": "Minimālais maksājums",
+      "Minimum Payment Type": "Minimālā maksājuma veids",
       "Minimum Required Balance": "Minimālais nepieciešamais līdzsvars",
       "Minimum Value": "Minimālā vērtība",
       "Minimum days between disbursal and first repayment date": "Minimālās dienas starp izmaksu un pirmo atmaksas datumu",
@@ -2203,6 +2367,9 @@
       "Name": "Vārds",
       "Name Decorated": "Nosaukums Dekorēts",
       "Name of the Organization": "Organizācijas nosaukums",
+      "Near Breach Evaluation Frequency": "Tuva pārkāpuma novērtēšanas biežums",
+      "Near Breach Evaluation Frequency Type": "Tuva pārkāpuma novērtēšanas biežuma veids",
+      "Near Breach Threshold": "Tuva pārkāpuma slieksnis",
       "Net Cash": "Neto nauda",
       "New Interest Rate": "Jauna procentu likme",
       "Next Meeting Date": "Nākamās tikšanās datums",
@@ -2224,6 +2391,7 @@
       "Not Available": "Nav pieejams",
       "Not Provided": "Nav nodrošināts",
       "Note": "Piezīme",
+      "Note is too long": "Piezīme ir pārāk gara",
       "Notes": "Piezīmes",
       "Notes/Comments": "Piezīmes/Komentāri",
       "Notification": "Paziņojums",
@@ -2237,6 +2405,7 @@
       "Number of Active Overdue Group Loans": "Aktīvi kavēto grupas aizdevumu skaits",
       "Number of Centers": "Centru skaits",
       "Number of Clients": "Klientu skaits",
+      "Please enter a valid number": "Lūdzu, ievadiet derīgu skaitli",
       "Number of Collaterals": "Ķīlu skaits",
       "Number of Days to Dormant sub-status": "Dienu skaits līdz apakšstatusam Neaktīvs",
       "Number of Days to Escheat": "Dienu skaits līdz Escheat",
@@ -2370,6 +2539,7 @@
       "Priority": "Prioritāte",
       "Product": "Produkts",
       "Product Name": "produkta nosaukums",
+      "Product Type": "Produkta veids",
       "Products": "Produkti",
       "Profession": "Profesija",
       "Proposed Amount": "Piedāvātā summa",
@@ -2504,8 +2674,20 @@
       "Scheduler Jobs": "Plānotāja darbi",
       "Schedule Date": "Grafika datums",
       "Score": "Rezultāts",
+      "NID": "Nacionālais ID",
+      "Legal Id": "Juridiskais ID",
+      "Proof of address": "Adreses apliecinājums",
+      "Missing document": "Trūkstošs dokuments",
+      "Illegible document": "Nesalasāms dokuments",
+      "Invalid document": "Nederīgs dokuments",
+      "Expired document": "Dokuments ar beigušos termiņu",
+      "Validation Status": "Validācijas statuss",
+      "Data": "Dati",
+      "INCOMPLETE": "NEPABEIGTS",
+      "COMPLETE": "PABEIGTS",
       "Screen Report": "Ekrāna ziņojums",
       "Search Journal Entries": "Meklēt žurnāla ierakstus",
+      "Search Permissions": "Meklēt atļaujas",
       "Select Action": "Atlasiet Darbība",
       "Select Client Members for Transfer": "Atlasiet Klientu dalībniekus pārsūtīšanai",
       "Select Currency": "Atlasiet Valūta",
@@ -2542,6 +2724,7 @@
       "Show Payment Details": "Rādīt maksājuma informāciju",
       "Waive Penalties": "Atteikties no sodiem",
       "Slab": "Slānis",
+      "Range": "Diapazons",
       "Specific to Installment": "Īpaši uz nomaksu",
       "Staff": "Personāls",
       "Standing Instruction": "Pastāvīga instrukcija",
@@ -2616,6 +2799,7 @@
       "Total Interest Earned": "Kopējie nopelnītie procenti",
       "Total No. of Shares": "Kopējais akciju skaits",
       "Total Number of Shares": "Kopējais akciju skaits",
+      "Total Payment": "Kopējais maksājums",
       "Total Records": "Kopējie ieraksti",
       "Total Savings": "Kopējie ietaupījumi",
       "Total Shares": "Kopējās akcijas",
@@ -2686,6 +2870,7 @@
       "View Journal Entry": "Skatīt žurnāla ierakstu",
       "View Report": "Skatīt pārskatu",
       "View Signature": "Skatīt parakstu",
+      "Volume": "Apjomi",
       "Waived": "Atteicās",
       "Website": "Tīmekļa vietne",
       "Wednesday": "trešdiena",
@@ -2805,7 +2990,8 @@
       "Period Payment Frequency": "Perioda maksājumu biežums",
       "Period Payment Frequency Type": "Perioda maksājumu biežuma veids",
       "Payment Allocation Transactions": "Maksājumu sadales darījumi",
-      "Net Present Value day count": "Neto pašreizējās vērtības dienu skaits"
+      "Net Present Value day count": "Neto pašreizējās vērtības dienu skaits",
+      "Installment": "Iemaksa"
     },
     "links": {
       "Community": "kopiena",
@@ -2838,7 +3024,7 @@
       "Approve": "Apstiprināt",
       "Assign Loan Officer": "Norīkojiet aizdevuma speciālistu",
       "Attach Loan Originator": "Pievienot aizdevuma izsniedzēju",
-      "Assign Staff": "Norīkojiet personālu",
+      "Detach Loan Originator": "Atvienot aizdevuma izsniedzēju",
       "Block Account": "Bloķēt kontu",
       "Block Deposit": "Bloķēt depozītu",
       "Block Withdrawal": "Bloķēt izņemšanu",
@@ -2937,6 +3123,7 @@
       "Withdrawal": "Izņemšana",
       "Withdrawn by Client": "Izņēmis klients",
       "Write Off": "Norakstīt",
+      "Update discount": "Atjaunināt atlaidi",
       "Apply Additional Shares": "Lietot papildu",
       "Redeem Shares": "Izpirkt Akcijas",
       "Approve Additional Shares": "Apstipriniet papildu akcijas",
@@ -3007,6 +3194,7 @@
       "No repayment schedule available": "Nav pieejams atmaksas grafiks",
       "About Us": "Par Mums",
       "A": "A",
+      "withoutCategory": "Bez kategorijas",
       "Account Transfers": "Kontu pārskaitījumi",
       "Ability to manage holidays for individual offices": "Iespēja pārvaldīt brīvdienas atsevišķiem birojiem ir ļoti noderīgs rīks organizācijai, kas aptver vairākas atrašanās vietas. Izmantojiet šo opciju, lai pielāgotu brīvdienas katram savas organizācijas birojam.",
       "Account Detail": "Konta informācija",
@@ -3063,6 +3251,7 @@
       "Audit Trails": "Revīzijas pēdas",
       "Audit logs of all the activities": "Pārbaudīt visu darbību žurnālus, piemēram, klienta izveidošanu, aizdevumu izsniegšanu utt",
       "Bar": "Bārs",
+      "BIRT": "Mifos Reporting Plugin for Eclipse Birt",
       "Bulk Import": "Lielapjoma importēšana",
       "Bulk Loan Reassignment": "Lielapjoma aizdevuma pārcelšana",
       "Bulk data import using excel spreadsheet templates": "Lielapjoma datu importēšana, izmantojot Excel izklājlapu veidnes klientiem, birojiem utt.",
@@ -3201,6 +3390,7 @@
       "Define Tax Groups": "Definējiet nodokļu grupas",
       "Define Tax components": "Definējiet nodokļu sastāvdaļas",
       "Define Tax components and Tax groups": "Definējiet nodokļu sastāvdaļas un nodokļu grupas",
+      "Define breaches for working capital products": "Definējiet pārkāpumus apgrozāmā kapitāla produktiem",
       "Define charges/penalties for loan products, savings and deposit products": "Definējiet maksas/sodus par aizdevumu produktiem, uzkrājumu un noguldījumu produktiem",
       "Define collaterals for Collateral Management": "Definējiet nodrošinājumus nodrošinājuma pārvaldībai",
       "Define delinquency bucket as set of ranges": "Definējiet likumpārkāpumu segmentu kā diapazonu kopu",
@@ -3299,6 +3489,7 @@
       "Fixed Deposit Account Interest Rate Chart": "Fiksētā depozīta konta procentu likmju diagramma",
       "Fixed Deposit Account Standing Instructions": "Fiksētā depozīta konta pastāvēšanas instrukcijas",
       "Fixed Deposit Account Transactions": "Fiksētā depozīta konta darījumi",
+      "Fixed Deposit Account Details": "Termiņnoguldījuma konta informācija",
       "Fixed Deposit Account View": "Fiksētā depozīta konta skats",
       "Fixed Deposit Products": "Fiksētā depozīta produkti",
       "Fixed Deposit Products defines the rules, default settings": "Fiksēto depozītu produkti definē noteikumus, noklusējuma iestatījumus un ierobežojumus finanšu iestādes <br> fiksēto noguldījumu piedāvājumiem (saukti arī par termiņnoguldījumiem). Fiksētā depozīta produkts nodrošina veidni vairākiem fiksēto depozītu kontiem finanšu iestādes klientiem.",
@@ -3354,6 +3545,7 @@
       "LoanAccountCustomSnapshotBusinessEvent": "LoanAccountCustomSnapshotBusinessEvent",
       "LoanAccountDelinquencyPauseChangedBusinessEvent": "LoanAccountDelinquencyPauseChangedBusinessEvent",
       "LoanAccountSnapshotBusinessEvent": "LoanAccountSnapshotBusinessEvent",
+      "Loan Account Details": "Kredītkonta informācija",
       "Loan Account Actions": "Aizdevuma konta darbības",
       "Loan Collateral Details": "Sīkāka informācija par aizdevuma nodrošinājumu",
       "Loan Disbursal": "Aizdevuma izsniegšana",
@@ -3429,10 +3621,13 @@
       "No checker inbox data available for this search": "Šai meklēšanai nav pieejami pārbaudītāja iesūtnes dati.",
       "No client was found": "Klients netika atrasts",
       "No data found": "Dati nav atrasti",
+      "No permissions found": "Atļaujas nav atrastas",
+      "NonTriggered": "Nav izraisīts",
       "No penalties found": "Sodi nav atrasti",
       "NoDocuments": "Nav pieejamu dokumentu.",
       "NoFileSelected": "Nav izvēlēts fails",
       "NoNotesAvailable": "Nav pieejamas piezīmes",
+      "No Loan Product was found": "Nav atrasts neviens aizdevuma produkts",
       "No loan locked available": "Nav pieejams bloķēts aizdevums.",
       "No notifications": "Nav paziņojumu",
       "No pending loan available for disbursal": "Nav pieejams neizmaksāts aizdevums.",
@@ -3456,7 +3651,7 @@
       "Passwords": "Paroles",
       "Pay Charge": "Maksājiet maksu",
       "Payment Types": "Maksājumu veidi",
-      "Pentaho": "",
+      "Pentaho": "Mifos Reporting Plugin for Pentaho",
       "Periodic Accrual Accounting": "Periodiskā uzkrājumu grāmatvedība",
       "Pie": "Pīrāgs",
       "Please enter the OTP": "Lūdzu, ievadiet OTP",
@@ -3476,6 +3671,7 @@
       "Provisioning criteria definitions": "Lūdzu, aizpildiet visas nodrošināšanas kritēriju definīcijas.",
       "Precedes of": "Iepriekšējie",
       "Recurring Deposit Account Charges": "Periodiskas depozīta konta izmaksas",
+      "Recurring Deposit Account Details": "Regulārā noguldījuma konta informācija",
       "Recurring Deposit Account Interest Rate Chart": "Atkārtota depozīta konta procentu likmju diagramma",
       "Recurring Deposit Account Standing Instructions": "Atkārtota depozīta konta pastāvīgās lietošanas instrukcijas",
       "Recurring Deposit Account Transactions": "Atkārtoti depozīta konta darījumi",
@@ -3541,6 +3737,7 @@
       "Share Products Dividends": "Dalieties Produkti Dividendes",
       "Share products define the rules, default settings": "Kopīgošanas produkti nosaka noteikumus, noklusējuma iestatījumus un ierobežojumus finanšu iestādes akcijām un dividendēm. Dalīšanas produkts nodrošina veidni vairākiem kontiem, kas pieder vai būs finanšu iestādes klientiem.",
       "Shares": "Akcijas",
+      "Shares Account Details": "Akciju konta informācija",
       "Shares Account Actions": "Kopīgošanas konta darbības",
       "Shares Account Charges": "Akciju konta izmaksas",
       "Shares Account Dividends": "Akciju konta dividendes",
@@ -3563,6 +3760,7 @@
       "View system version, server and licensing information": "Skatīt sistēmas versiju, servera un licencēšanas informāciju",
       "Table": "Tabula",
       "Tax Components": "Nodokļu sastāvdaļas",
+      "Triggered": "Izraisīts",
       "tenant_app_key": "rentant_app_key",
       "Email": "E-pasts",
       "Tellers": "Teicēji",
@@ -3707,7 +3905,224 @@
       "Failed to update payment type. Please try again.": "Neizdevās atjaunināt maksājuma veidu. Lūdzu, mēģiniet vēlreiz.",
       "Search and assign this beneficiary to an existing Mifos client account": "Meklējiet un piešķiriet šo saņēmēju esošam Mifos klienta kontam",
       "Failed to search clients. Please try again.": "Neizdevās meklēt klientus. Lūdzu, mēģiniet vēlreiz.",
-      "Process Remittance": "Apstrādāt pārvedumu"
+      "Process Remittance": "Apstrādāt pārvedumu",
+      "Loan Originators": "Aizdevumu izsniedzēji",
+      "Loan Reschedules": "Aizdevuma grafiki"
+    },
+    "permissions": {
+      "actions": {
+        "ACCEPTTRANSFER": "Pieņemt pārvedumu",
+        "ACTIVATE": "Aktivizēt",
+        "ADD": "Pievienot",
+        "ADDCHARGE": "Pievienot maksu",
+        "ADJUST": "Koriģēt",
+        "ADJUSTMENT": "Koriģējums",
+        "ADJUSTTRANSACTION": "Koriģēt darbību",
+        "ALLOCATECASHIER": "Piešķirt kasieri",
+        "APPLYADDITIONAL": "Piemērot papildus",
+        "APPLYANNUALFEE": "Piemērot gada maksu",
+        "APPROVALUNDO": "Atsaukt apstiprināšanu",
+        "APPROVE": "Apstiprināt",
+        "APPROVEADDITIONAL": "Apstiprināt papildus",
+        "ASSIGNROLE": "Piešķirt lomu",
+        "ASSIGNSTAFF": "Piešķirt personālu",
+        "ASSOCIATECLIENTS": "Saistīt klientus",
+        "ASSOCIATEGROUPS": "Saistīt grupas",
+        "ATTACH": "Pievienot",
+        "BLOCK": "Bloķēt",
+        "BLOCKDEPOSIT": "Bloķēt depozītu",
+        "BLOCKWITHDRAWAL": "Bloķēt izņemšanu",
+        "BULKREASSIGN": "Masveida pārvērtošana",
+        "BUYDOWNFEE": "Iegādāties maksas samazinājumu",
+        "CALCULATEINTEREST": "Aprēķināt procentus",
+        "CAPITALIZEDINCOME": "Kapitalizēti ienākumi",
+        "CHARGEBACK": "Atgriešanās maksa",
+        "CHARGEOFF": "Maksas noslēgšana",
+        "CLOSE": "Aizvērt",
+        "CLOSEASRESCHEDULED": "Aizvērt pēc pārraudzības",
+        "CONTRACT_TERMINATION": "Līguma izbeigšana",
+        "CREATE": "Izveidot",
+        "DEACTIVATE": "Deaktivizēt",
+        "DEFINEOPENINGBALANCE": "Noteikt sākuma atlikumu",
+        "DELETE": "Dzēst",
+        "DELETECASHIER": "Dzēst kasieri",
+        "DEPOSIT": "Depozīts",
+        "DETACH": "Atvienot",
+        "DISBURSALUNDO": "Atsaukt izmaksu",
+        "DISBURSALLASTUNDO": "Atsaukt pēdējo izmaksu",
+        "DISBURSE": "Izmaksāt",
+        "DISBURSETOSAVINGS": "Izmaksāt uz uzkrāšanas",
+        "EXECUTE": "Izpildīt",
+        "FORECLOSURE": "Hipotēkas nozaudēšana",
+        "HOLDAMOUNT": "Turēt summu",
+        "INACTIVATE": "Deaktivizēt",
+        "PAY": "Maksāt",
+        "PERMISSIONS": "Atļaujas",
+        "POST": "Grāmatot",
+        "POSTINTEREST": "Grāmatot procentus",
+        "PREMATURECLOSE": "Agrīna slēgšana",
+        "PROPOSETRANSFER": "Piedāvāt pārvedumu",
+        "REACTIVATE": "Atkārtoti aktivizēt",
+        "READ": "Lasīt",
+        "REAGE": "Pārvērtējums",
+        "REAGING": "Pārvērtējums",
+        "REAMORTIZE": "Pāramortizēt",
+        "RECOVERGUARANTEES": "Atgūt garantijas",
+        "RECOVERYPAYMENT": "Atmaksas maksājums",
+        "REJECT": "Noraidīt",
+        "REJECTADDITIONAL": "Noraidīt papildus",
+        "RELEASEAMOUNT": "Atbrīvot summu",
+        "REMOVESAVINGSOFFICER": "Noņemt uzkrāšanas darbinieku",
+        "REOPEN": "Atkārtoti atvērt",
+        "REPAYMENT": "Atmaksa",
+        "RESCHEDULE": "Pārraudzīt grafiku",
+        "REVERSE": "Apgriezt",
+        "SALE": "Pārdošana",
+        "SAVEORUPDATEATTENDANCE": "Saglabāt vai atjaunināt apmeklējumu",
+        "SETTLECASHFROMCASHIER": "Noregulēt naudu no kasieres",
+        "SETTLECASHIER": "Noregulēt kasieri",
+        "TRANSFER": "Pārvedums",
+        "TRANSFERCLIENTS": "Pārsūtīt klientus",
+        "UNASSIGNROLE": "Atņemt lomu",
+        "UNASSIGNSTAFF": "Atņemt personālu",
+        "UNBLOCK": "Atbloķēt",
+        "UNBLOCKDEPOSIT": "Atbloķēt depozītu",
+        "UNBLOCKWITHDRAWAL": "Atbloķēt izņemšanu",
+        "UNDO": "Atsaukt",
+        "UNDO_ACTIVATE": "Atsaukt aktivizēšanu",
+        "UNDO_REAGE": "Atsaukt pārvērtējumu",
+        "UNDO_REAMORTIZE": "Atsaukt pāramortizāciju",
+        "UNDOCHARGEOFF": "Atsaukt maksas noslēgšanu",
+        "UNDOTRANSACTION": "Atsaukt darbību",
+        "UNDOWRITEOFF": "Atsaukt betona noslēgšanu",
+        "UPDATE": "Atjaunināt",
+        "UPDATECASHIERALLOCATION": "Atjaunināt kasieres sadalījumu",
+        "UPDATELOANOFFICER": "Atjaunināt aizdevuma darbinieku",
+        "UPDATESAVINGSACCOUNT": "Atjaunināt uzkrāšanas kontu",
+        "UPDATESAVINGSOFFICER": "Atjaunināt uzkrāšanas darbinieku",
+        "UPDATEWITHHOLDTAX": "Atjaunināt aizturēto nodokli",
+        "VIEW": "Skatīt",
+        "WAIVE": "Atteikties",
+        "WAIVEINTERESTPORTION": "Atteikties no procentu daļas",
+        "WITHDRAW": "Izņemt",
+        "WITHDRAWAL": "Izņemšana",
+        "WRITEOFF": "Betona noslēgšana",
+        "ALL": "Visi",
+        "BYPASS": "Apiet",
+        "CHECKER": "Pārbaudītājs",
+        "REPORTING": "Pārskati"
+      },
+      "entities": {
+        "ACCOUNTINGRULE": "Grāmatvedības noteikums",
+        "ACCOUNTNUMBERFORMAT": "Konta numura formāts",
+        "ACCOUNTTRANSFER": "Konta pārskaitīšana",
+        "ADHOC": "Ad hoc",
+        "BUSINESSDATE": "Biznesa datums",
+        "CASHIER": "Kasiere",
+        "CASHIERS_FOR_TELLER": "Kasieres kasierim",
+        "CENTER": "Centrs",
+        "CENTERS": "Centri",
+        "CHARGE": "Maksa",
+        "CLIENT": "Klients",
+        "CLIENTCHARGE": "Klienta maksa",
+        "CLIENTIDENTIFIER": "Klienta identifikators",
+        "CLIENTIMAGE": "Klienta attēls",
+        "CLIENT_COLLATERAL_PRODUCT": "Klienta nodrošinājuma produkts",
+        "CLIENTS": "Klienti",
+        "CODE": "Kods",
+        "CODEVALUE": "Koda vērtība",
+        "COLLATERAL": "Nodrošinājums",
+        "COLLECTIONSHEET": "Kolekcijas lapa",
+        "CONFIG_WIZARD": "Konfigurācijas vednis",
+        "CONFIGURATION": "Konfigurācija",
+        "CREDIT_BALANCE_REFUND": "Kredītsaldo atmaksa",
+        "CRITERIA": "Kritēriji",
+        "CURRENCY": "Valūta",
+        "DATATABLE": "Datu tabula",
+        "DELINQUENCY_ACTION": "Nokavējuma darbība",
+        "DELINQUENCY_BUCKET": "Nokavējuma kategorija",
+        "DELINQUENCY_RANGE": "Nokavējuma diapazons",
+        "DIVIDENDS": "Dividendes",
+        "DOCUMENT": "Dokuments",
+        "EMPLOYEE": "Darbinieks",
+        "ENTITYMAPPING": "Subjekta kartēšana",
+        "ENTITY_DATATABLE_CHECK": "Subjekta datu tabulas pārbaude",
+        "EXTERNAL_EVENT_CONFIGURATION": "Ārējā notikuma konfigurācija",
+        "FINANCIALACTIVITYACCOUNT": "Finanšu darbības konts",
+        "FIXEDDEPOSITACCOUNT": "Fiksēta depozīta konts",
+        "FIXEDDEPOSITPRODUCT": "Fiksēta depozīta produkts",
+        "FLOATINGRATE": "Peldošā likme",
+        "FUND": "Fonds",
+        "GLACCOUNT": "Galvenās grāmatas konts",
+        "GLCLOSURE": "Galvenā grāmatas slēgšana",
+        "GOODWILL_TRANSACTION": "Labās gribas darbība",
+        "GROUP": "Grupa",
+        "GROUPNOTE": "Grupas piezīme",
+        "GROUPS": "Grupas",
+        "GSIMACCOUNT": "GSIM konts",
+        "GUARANTOR": "Garantants",
+        "HOLIDAY": "Brīvdiena",
+        "HOOK": "Āķis",
+        "INLINE_JOB": "Iekļauta darba vieta",
+        "INTEREST_PAUSE": "Procentu pauze",
+        "INTERESTPAYMENTWAIVER_TRANSACTION": "Procentu maksājuma atbrīvošanas darbība",
+        "JOURNAL_ENTRY": "Žurnāla ieraksts",
+        "JOURNALENTRY": "Žurnāla ieraksts",
+        "LOAN": "Aizdevums",
+        "LOANCHARGE": "Aizdevuma maksa",
+        "LOANNOTE": "Aizdevuma piezīme",
+        "LOANPRODUCT": "Aizdevuma produkts",
+        "LOANRESCHEDULE": "Aizdevuma pārraudzības grafiks",
+        "LOAN_ORIGINATOR": "Aizdevuma iniciators",
+        "MAKERCHECKER": "Veidotājs Pārbaudītājs",
+        "MEETING": "Sanāksme",
+        "MERCHANT_ISSUED_REFUND": "Tirgotāja izdota atmaksa",
+        "NOTIFICATION": "Paziņojums",
+        "OFFICE": "Birojs",
+        "OFFICES": "Biroji",
+        "PASSWORD_VALIDATION_POLICY": "Paroles validācijas politika",
+        "PAYOUT_REFUND": "Izmaksas atmaksa",
+        "PAYMENTTYPE": "Maksājuma veids",
+        "PERIODICACCRUALACCOUNTING": "Periodiska uzkrāšanas grāmatvedība",
+        "PERMISSION": "Atļauja",
+        "PREFERENCES": "Preferences",
+        "PRODUCT": "Produkts",
+        "PRODUCTMIX": "Produktu mājsaimniecība",
+        "PROVISIONING_CRITERIA": "Aprūpes kritēriji",
+        "PROVISIONING_ENTRIES": "Aprūpes ieraksti",
+        "RECURRINGDEPOSITACCOUNT": "Atkārtota depozīta konts",
+        "RECURRINGDEPOSITPRODUCT": "Atkārtota depozīta produkts",
+        "REPAYMENT_SCHEDULE": "Atmaksas grafiks",
+        "REPORT": "Pārskats",
+        "RESCHEDULELOAN": "Pārraudzības aizdevums",
+        "ROLE": "Loma",
+        "SAVINGNOTE": "Uzkrāšanas piezīme",
+        "SAVINGSACCOUNT": "Uzkrāšanas konts",
+        "SAVINGSACCOUNTCHARGE": "Uzkrāšanas konta maksa",
+        "SAVINGSNOTE": "Uzkrāšanas piezīme",
+        "SAVINGSPRODUCT": "Uzkrāšanas produkts",
+        "SCHEDULER": "Plānotājs",
+        "SHAREACCOUNT": "Akciju konts",
+        "SHAREACCOUNTCHARGE": "Akciju konta maksa",
+        "SHAREACCOUNTDIVIDENDS": "Akciju konta dividendes",
+        "SHAREACCOUNTPURCHASE": "Akciju konta pirkšana",
+        "SHAREDIVIDEND": "Akciju dividende",
+        "SHAREPRODUCT": "Akciju produkts",
+        "SHARESACCOUNTCHARGE": "Akciju konta maksa",
+        "SMSCAMPAIGN": "SMS kampaņa",
+        "SSBENEFICIARYTPT": "Pašapkalpošanās labumnieki TPT",
+        "STAFF": "Personāls",
+        "STANDINGINSTRUCTION": "Stāvoša instrukcija",
+        "TAXCOMPONENT": "Nodokļu komponents",
+        "TAXGROUP": "Nodokļu grupa",
+        "TELLER": "Kasiere",
+        "TEMPLATE": "Veidne",
+        "USER": "Lietotājs",
+        "WORKINGDAYS": "Darba dienas",
+        "FUNCTIONS": "Funkcijas",
+        "TWOFACTOR": "Divfaktoru",
+        "SUPER_USER": "Superlietotājs"
+      }
     },
     "auditTrail": {
       "actions": {
@@ -3775,19 +4190,22 @@
     },
     "messages": {
       "No Data Found": "Dati nav atrasti",
-      "No Upcoming Charges Available": "Nav gaidāmo maksu",
-      "No Active Loan Accounts Available": "Nav aktīvu aizdevumu kontu",
-      "No Closed Loan Accounts Available": "Nav slēgtu aizdevumu kontu",
-      "No Active Saving Accounts Available": "Nav aktīvu krājkontu",
-      "No Closed Saving Accounts Available": "Nav slēgtu krājkontu",
-      "No Active Fixed Deposit Accounts Available": "Nav aktīvu termiņnoguldījumu kontu",
-      "No Closed Fixed Deposit Accounts Available": "Nav slēgtu termiņnoguldījumu kontu",
-      "No Active Recurring Deposit Accounts Available": "Nav aktīvu periodisku noguldījumu kontu",
-      "No Closed Recurring Deposit Accounts Available": "Nav slēgtu periodisku noguldījumu kontu",
-      "No Active Share Accounts Available": "Nav aktīvu akciju kontu",
-      "No Closed Share Accounts Available": "Nav slēgtu akciju kontu",
-      "No Collateral Data Available": "Nav pieejamu nodrošinājuma datu",
-      "No Identities Available": "Nav pieejamu identitāšu"
+      "No Upcoming Charges Found": "Nav atrasts gaidāmo maksājumu",
+      "No Active Loan Accounts Found": "Nav atrasts aktīvu aizdevumu kontu",
+      "No Closed Loan Accounts Found": "Nav atrasts slēgtu aizdevumu kontu",
+      "No Active Saving Accounts Found": "Nav atrasts aktīvu krājkontu",
+      "No Closed Saving Accounts Found": "Nav atrasts slēgtu krājkontu",
+      "No Active Fixed Deposit Accounts Found": "Nav atrasts aktīvu termiņnoguldījumu kontu",
+      "No Closed Fixed Deposit Accounts Found": "Nav atrasts slēgtu termiņnoguldījumu kontu",
+      "No Active Recurring Deposit Accounts Found": "Nav atrasts aktīvu regulāru noguldījumu kontu",
+      "No Closed Recurring Deposit Accounts Found": "Nav atrasts slēgtu regulāru noguldījumu kontu",
+      "No Active Share Accounts Found": "Nav atrasts aktīvu akciju kontu",
+      "No Closed Share Accounts Found": "Nav atrasts slēgtu akciju kontu",
+      "No Collateral Data Found": "Nav atrasts nodrošinājuma datu",
+      "No Identities Found": "Nav atrastas identitātes",
+      "validationSaved": "Validācijas dati veiksmīgi saglabāti.",
+      "workingCapitalDiscountUpdated": "Apgrozāmo līdzekļu aizdevuma atlaide ir veiksmīgi atjaunināta.",
+      "unableToUpdateDiscount": "Neizdevās atjaunināt atlaidi."
     }
   },
   "languages": {
@@ -4124,5 +4542,61 @@
     "YE": "Jemena",
     "ZM": "Zambija",
     "ZW": "Zimbabve"
+  },
+  "Deactivate Role": "Deaktivēt lomu",
+  "Delete Role": "Dzēst lomu",
+  "clients": {
+    "actions": {
+      "close": {
+        "success": "Klients veiksmīgi slēgts."
+      },
+      "reject": {
+        "success": "Klients veiksmīgi noraidīts."
+      },
+      "withdraw": {
+        "success": "Klients veiksmīgi atsaukts."
+      },
+      "reactivate": {
+        "success": "Klients veiksmīgi reaktivēts.",
+        "failure": "Neizdevās reaktivēt klientu."
+      },
+      "activate": {
+        "success": "Klients veiksmīgi aktivizēts.",
+        "failure": "Neizdevās aktivizēt klientu."
+      },
+      "acceptTransfer": {
+        "success": "Klienta pārsūtīšana veiksmīgi pieņemta."
+      },
+      "rejectTransfer": {
+        "success": "Klienta pārsūtīšana veiksmīgi noraidīta."
+      },
+      "undoTransfer": {
+        "success": "Klienta pārsūtīšana veiksmīgi atcelta."
+      },
+      "undoRejection": {
+        "success": "Klienta noraidīšana veiksmīgi atcelta."
+      },
+      "transfer": {
+        "success": "Klienta pārsūtīšana veiksmīgi ierosināta.",
+        "failure": "Neizdevās ierosināt klienta pārsūtīšanu."
+      },
+      "addCharge": {
+        "success": "Klienta maksa veiksmīgi pievienota."
+      },
+      "addCollateral": {
+        "success": "Klienta nodrošinājums veiksmīgi pievienots."
+      },
+      "assignStaff": {
+        "success": "Darbinieks veiksmīgi piesaistīts klientam.",
+        "failure": "Neizdevās piesaistīt darbinieku klientam."
+      },
+      "updateSavingsAccount": {
+        "success": "Klienta krājkonts veiksmīgi atjaunināts."
+      },
+      "takeSurvey": {
+        "success": "Aptauja veiksmīgi iesniegta.",
+        "failure": "Neizdevās iesniegt aptauju."
+      }
+    }
   }
 }

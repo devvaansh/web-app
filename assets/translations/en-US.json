@@ -21,6 +21,7 @@
     "Username is required": "Username is required",
     "Username or password incorrect.": "Username or password incorrect",
     "kycReportLoadError": "Failed to load KYC PDF report.",
+    "validationSaveError": "Failed to save validation data. Please try again.",
     "error.msg.charge.attach.to.savings.product.invalid.currency": "Charge and Savings Product must have the same currency.",
     "error.msg.charge.cannot.be.applied.to.savings.product": "Charge with identifier `{{params[0].value}} cannot be applied to Savings product.",
     "error.msg.charge.cannot.be.deleted.it.is.already.used.in.loan": "This charge cannot be deleted as it is already associated with a Loan Product and/or a Loan.",
@@ -82,6 +83,8 @@
     "validation.msg.loan.principal.is.greater.than.max": "Principal amount {{params[0].value}} is invalid. Must be an amount less than or equal to Maximum principal amount {{params[1].value}}.",
     "validation.msg.loan.principal.is.less.than.min": "Principal amount {{params[0].value}} is invalid. Must be an amount greater than or equal to Minimum Principal amount {{params[1].value}}.",
     "validation.msg.loanproduct.accountingType.cannot.be.blank": "Accounting type is mandatory.",
+    "labels.alt.Center profile placeholder": "Center profile placeholder",
+    "labels.alt.Group profile placeholder": "Group profile placeholder",
     "labels.commons.Only up to 6 decimal places allowed": "Only up to 6 decimal places allowed.",
     "validation.msg.loanproduct.accountingType.is.not.within.expected.range": "Accounting type is invalid. Must be a number between {{params[1].value}} and {{params[2].value}} inclusive.",
     "validation.msg.loanproduct.allowPartialPeriodInterestCalculation.not.supported.for.daily.calculations": "Allow Partial Installment Calculation cannot be set as true for daily calculation",
@@ -283,9 +286,145 @@
     "validation.msg.savingsproduct.shortName.exceeds.max.length": "Short name cannot be over {{params[0].value}} characters long.",
     "validation.msg.savingsproduct.withdrawalFeeAmount.cannot.be.blank": "Withdrawal fee amount is mandatory.",
     "validation.msg.savingsproduct.withdrawalFeeAmount.not.zero.or.greater": "Withdrawal fee amount must be greater than or equal to zero if provided.",
-    "validation.msg.savingsproduct.withdrawalFeeType.is.not.one.of.expected.enumerations": "Withdrawal fee period type is mandatory."
+    "validation.msg.savingsproduct.withdrawalFeeType.is.not.one.of.expected.enumerations": "The selected withdrawal fee type is not valid.",
+    "http": {
+      "connection": {
+        "title": "Connection Error",
+        "message": "Unable to connect to the server. Please check your internet connection."
+      },
+      "badRequest": {
+        "title": "Invalid Request",
+        "message": "Please check your input and try again."
+      },
+      "unauthorized": {
+        "title": "Unauthorized",
+        "message": "Your session has expired. Please log in again.",
+        "action": "Login"
+      },
+      "forbidden": {
+        "title": "Access Denied",
+        "message": "You do not have permission to perform this action."
+      },
+      "notFound": {
+        "title": "Not Found",
+        "message": "The requested resource was not found.",
+        "contextMessage": "{{context}} not found."
+      },
+      "conflict": {
+        "title": "Conflict",
+        "message": "The resource already exists or there is a conflict."
+      },
+      "serverError": {
+        "title": "Server Error",
+        "message": "An unexpected error occurred. Please try again later."
+      },
+      "serviceUnavailable": {
+        "title": "Service Unavailable",
+        "message": "The service is temporarily unavailable. Please try again later."
+      },
+      "default": {
+        "title": "Error",
+        "message": "An unexpected error occurred."
+      }
+    },
+    "interceptor": {
+      "invalidParams": "Invalid parameters were passed in the request!"
+    },
+    "auth": {
+      "pleaseWait": "Please wait...",
+      "startType": "Authentication Start",
+      "twoFactor": {
+        "type": "Two Factor Authentication Required",
+        "message": "Two Factor Authentication Required"
+      },
+      "passwordExpired": {
+        "type": "Password Expired",
+        "message": "Your password has expired, please reset your password!"
+      },
+      "success": {
+        "type": "Authentication Success",
+        "message": "{{username}} successfully logged in!"
+      },
+      "passwordReset": {
+        "type": "Password Reset Success",
+        "message": "Your password was successfully reset!"
+      },
+      "callbackFailed": {
+        "type": "Authentication Failed",
+        "message": "Unable to complete authentication. Please try again."
+      },
+      "callbackError": {
+        "type": "Authentication Error",
+        "message": "An error occurred during authentication. Please try again."
+      }
+    },
+    "hooks": {
+      "lastEvent": "At least one event is required. Cannot delete the last event."
+    },
+    "generic": {
+      "unexpected": "An error occurred. Please try again.",
+      "unexpectedRetry": "An unexpected error occurred. Please try again.",
+      "unexpectedShort": "An unexpected error occurred."
+    },
+    "holiday": {
+      "invalidDate": "Invalid date selected. Please select a valid date.",
+      "invalidRepaymentDate": "Invalid repayment rescheduled date. Please select a valid date."
+    },
+    "report": {
+      "type": "Report generation",
+      "generated": "Report: {{reportName}} data generated",
+      "generatedNoData": "Report: {{reportName}} without data generated"
+    },
+    "clipboard": {
+      "type": "Clipboard",
+      "copied": "Copied: {{value}}"
+    },
+    "tenant": {
+      "changed": {
+        "type": "Tenant Changed"
+      }
+    },
+    "config": {
+      "setConfig": "{{type}} Set Config"
+    },
+    "loans": {
+      "undoWriteOff": {
+        "type": "Undo Write-off Failed",
+        "message": "An error occurred while processing the undo write-off transaction. Please try again or contact support if the problem persists."
+      },
+      "alreadyAdjusted": "Capitalized Income amount already adjusted",
+      "adjustment": "Adjustment {{type}} Transaction",
+      "capitalizedIncomeLimit": "Capitalized Income Adjustment amount must be lower or equal to",
+      "buyDownFeeAdjusted": "Buy Down Fee amount already adjusted",
+      "buyDownFeeLimit": "Buy Down Fee Adjustment amount must be lower or equal to",
+      "businessRule": "Business Rule",
+      "alertWithAmount": "{{label}}: {{amount}}"
+    },
+    "error.auth.type": "Authentication Error",
+    "error.auth.message": "Your session has expired or the credentials are invalid.",
+    "error.token.invalid.type": "Invalid Token",
+    "error.token.invalid.message": "The provided one time token is invalid.",
+    "error.bad.request.type": "Bad Request",
+    "error.bad.request.message": "Invalid parameters were passed in the request!",
+    "error.unauthorized.type": "Unauthorized",
+    "error.unauthorized.message": "Your session has expired or the credentials are invalid.",
+    "error.resource.not.found.type": "Resource Not Found",
+    "error.resource.not.found.message": "The requested resource was not found.",
+    "error.resource.notImplemented.type": "Not Implemented Error",
+    "error.resource.notImplemented.message": "Not implemented functionality!",
+    "error.server.internal.type": "Internal Server Error",
+    "error.server.internal.message": "An unexpected error occurred on the server. Please try again later.",
+    "error.unknown.type": "Unknown Error",
+    "error.unknown.message": "An unexpected error occurred.",
+    "validation.required": "This field is required",
+    "validation.minLength": "Minimum length is {{requiredLength}}",
+    "validation.emailInvalid": "Email not valid",
+    "validation.requiredField": "{{label}} is a required field.",
+    "validation.mustBeAtLeast": "{{field}} must be at least {{min}}",
+    "validation.mustBePositive": "{{field}} must be a positive number."
   },
   "labels": {
+    "Mifos Reporting Plugin for Eclipse Birt": "Mifos Reporting Plugin for Eclipse Birt",
     "version": {
       "Tenant": "Tenant",
       "Mifos WebApp": "Mifos® WebApp",
@@ -307,7 +446,7 @@
     },
     "aboutUs": {
       "Introduction": "The Mifos Initiative is a 501(c)(3) non-profit organization and a global community of developers, financial institutions, and social entrepreneurs. We believe that access to financial services is a fundamental human right, yet billions of people remain excluded from the formal financial system.",
-      "Platform Description": "We bridge this gap by providing the <a href=\"https://mifos.org\" target=\"_blank\" rel=\"noopener noreferrer\">Mifos X Platform</a>\u2014the world's leading open-source core banking system. By making enterprise-grade banking technology free and accessible, we lower the barrier to entry for Microfinance Institutions (MFIs), Fintechs, and NGOs, allowing them to scale their impact and serve the \"last mile\" efficiently.",
+      "Platform Description": "We bridge this gap by providing the <a href=\"https://mifos.org\" target=\"_blank\" rel=\"noopener noreferrer\">Mifos X Platform</a>—the world's leading open-source core banking system. By making enterprise-grade banking technology free and accessible, we lower the barrier to entry for Microfinance Institutions (MFIs), Fintechs, and NGOs, allowing them to scale their impact and serve the \"last mile\" efficiently.",
       "Mission": "To accelerate financial inclusion by catalyzing an ecosystem of open-source technology, community, and knowledge sharing.",
       "Vision": "A world where every individual and small business has access to the financial tools they need to thrive, regardless of their location or income level.",
       "Why Open Source": "We chose the Open Source model because we believe financial infrastructure should be:",
@@ -371,6 +510,7 @@
       "Add Role": "Add Role",
       "Add Rule": "Add Rule",
       "Add Slab": "Add Slab",
+      "Add Range": "Add Range",
       "Add/Edit": "Add/Edit",
       "Adjustment": "Adjustment",
       "Advanced Options": "Advanced Options",
@@ -478,7 +618,11 @@
       "Export to File": "Export to File",
       "Export CSV": "Export CSV",
       "Export XLS": "Export XLS",
+      "Export to PDF": "Export to PDF",
       "Export KYC": "Export KYC",
+      "Validate Documentation": "Validate Documentation",
+      "INCOMPLETE": "INCOMPLETE",
+      "COMPLETE": "COMPLETE",
       "Filter": "filter",
       "Foreclosure": "Foreclosure",
       "GLIM Application": "GLIM Application",
@@ -611,7 +755,8 @@
       "Add Entry": "Add Entry",
       "PRINT": "Print",
       "DONE": "Done",
-      "Submitting": "Submitting"
+      "Submitting": "Submitting",
+      "OK": "OK"
     },
     "catalogs": {
       "Interest payment waiver": "Interest Payment Waiver",
@@ -880,7 +1025,12 @@
       "move to next working day": "move to next working day",
       "move to next repayment meeting day": "move to next repayment meeting day",
       "move to previous working day": "move to previous working day",
-      "move to next meeting day": "move to next meeting day"
+      "move to next meeting day": "move to next meeting day",
+      "Working Capital": "Working Capital",
+      "DAYS": "DAYS",
+      "MONTHS": "MONTHS",
+      "YEARS": "YEARS",
+      "Loan Creation": "Loan Creation"
     },
     "commons": {
       "50 characters long": "50 characters long",
@@ -906,7 +1056,9 @@
       "do not match": "do not match",
       "does not match": "does not match",
       "greater equal to than 0": "greater equal to than 0",
+      "higher than allowed": "higher than allowed",
       "invalid": "invalid",
+      "Invalid amount format": "Invalid amount format",
       "is": "is",
       "Is": "is",
       "is required": "is required",
@@ -927,6 +1079,7 @@
       "on": "on",
       "every": "every",
       "Password validation": "The password should contain a minimum of {{minchar}} characters, including 1 uppercase, 1 lowercase and a special character and should not include repeated characters or spaces.",
+      "Must be a positive integer": "Must be a positive integer",
       "Must be at least": "Must be at least",
       "Must be less or equal to": "Must be less or equal to",
       "must be after or equal to start date": "must be after or equal to start date",
@@ -988,6 +1141,7 @@
       "Beneficiary": "Beneficiary",
       "Beneficiary Selection": "Beneficiary Selection",
       "Block Savings Account": "Block Savings Account",
+      "Breach Configuration": "Breach Configuration",
       "Bulk Import": "Bulk Import",
       "Bulk Loan Reassignment": "Bulk Loan Reassignment",
       "Business Rule Parameters": "Business Rule Parameters",
@@ -1081,6 +1235,7 @@
       "Family Member": "Family Member",
       "Family Members": "Family Members",
       "Personal Information": "Personal Information",
+      "Do you want to mark the Customer Data as valid?": "Do you want to mark the customer data as valid?",
       "Entity Details": "Entity Details",
       "Contact Information": "Contact Information",
       "Account Information": "Account Information",
@@ -1135,6 +1290,7 @@
       "Interest Recalculation": "Interest Recalculation",
       "Interest Transfer": "Interest Transfer",
       "It is required to add at least one Slab": "It is required to add at least one Slab",
+      "It is required to add at least one Range": "It is required to add at least one Range",
       "Journal Entries": "Journal Entries",
       "Keyboard Shortcuts": "Keyboard Shortcuts",
       "Last Active": "Last Active",
@@ -1158,6 +1314,7 @@
       "List of Users with their details": "List of Users with their details",
       "Loan Account OverView": "Loan Account OverView",
       "Loan Accounts": "Loan Accounts",
+      "Loan Amounts": "Loan Amounts",
       "Loan Delinquency Actions": "Loan Delinquency Actions",
       "Loan Delinquency Classification": "Loan Delinquency Classification",
       "Loan Delinquency Tags": "Loan Delinquency Tags",
@@ -1546,6 +1703,7 @@
       "Beneficiary Selection": "Beneficiary Selection",
       "Branch": "Branch",
       "Branch Office": "Branch Office",
+      "Breach": "Breach",
       "Breakdown": "Breakdown",
       "Boolean": "Boolean",
       "Business Date": "Business Date",
@@ -1755,6 +1913,9 @@
       "Delinquency Action": "Delinquency Action",
       "Delinquency Bucket": "Delinquency Bucket",
       "Delinquency Classification": "Delinquency Classification",
+      "Delinquency Payment Rule": "Delinquency Payment Rule",
+      "Delinquency Grace Days": "Delinquency Grace Days",
+      "Delinquency Start Type": "Delinquency Start Type",
       "Delinquency Tags": "Delinquency Tags",
       "Delinquent Days": "Delinquent Days",
       "Delivery Method": "Delivery Method",
@@ -1789,6 +1950,8 @@
       "Disbursement Date": "Disbursement Date",
       "Disbursement On": "Disbursement On",
       "Disbursement on": "Disbursement on",
+      "Discount": "Discount",
+      "Discount must be greater than or equal to 0": "Discount must be greater than or equal to 0",
       "Display Name": "Display Name",
       "Dividend Amount": "Dividend Amount",
       "Dividend Period End Date": "Dividend Period End Date",
@@ -1825,6 +1988,7 @@
       "Enable Down Payment": "Enable Down Payment",
       "Enable Lock-in Period": "Enable Lock-in Period",
       "Enable Multiple Disbursals": "Enable Multiple Disbursals",
+      "Enable Near Breach": "Enable Near Breach",
       "Allow full term for each tranche": "Allow full term for each tranche",
       "Enabled": "Enabled",
       "End Date": "End Date",
@@ -2201,6 +2365,8 @@
       "Minimum Guarantee from Own Funds(%)": "Minimum Guarantee from Own Funds(%)",
       "Minimum Opening Balance": "Minimum Opening Balance",
       "Minimum Overdraft Required for Interest Calculation": "Minimum Overdraft Required for Interest Calculation",
+      "Minimum Payment": "Minimum Payment",
+      "Minimum Payment Type": "Minimum Payment Type",
       "Minimum Required Balance": "Minimum Required Balance",
       "Minimum Value": "Minimum Value",
       "Minimum days between disbursal and first repayment date": "Minimum days between disbursal and first repayment date",
@@ -2221,6 +2387,9 @@
       "Name": "Name",
       "Name Decorated": "Name Decorated",
       "Name of the Organization": "Name of the Organization",
+      "Near Breach Evaluation Frequency": "Near Breach Evaluation Frequency",
+      "Near Breach Evaluation Frequency Type": "Near Breach Evaluation Frequency Type",
+      "Near Breach Threshold": "Near Breach Threshold",
       "Net Cash": "Net Cash",
       "New Interest Rate": "New Interest Rate",
       "Next Meeting Date": "Next Meeting Date",
@@ -2242,6 +2411,7 @@
       "Not Available": "Not Available",
       "Not Provided": "Not Provided",
       "Note": "Note",
+      "Note is too long": "Note is too long",
       "Notes": "Notes",
       "Notes/Comments": "Notes/Comments",
       "Notification": "Notification",
@@ -2255,6 +2425,7 @@
       "Number of Active Overdue Group Loans": "Number of Active Overdue Group Loans",
       "Number of Centers": "Number of Centers",
       "Number of Clients": "Number of Clients",
+      "Please enter a valid number": "Please enter a valid number",
       "Number of Collaterals": "Number Of Collaterals",
       "Number of Days to Dormant sub-status": "Number of Days to Dormant sub-status",
       "Number of Days to Escheat": "Number of Days to Escheat",
@@ -2389,6 +2560,7 @@
       "Priority": "Priority",
       "Product": "Product",
       "Product Name": "Product Name",
+      "Product Type": "Product Type",
       "Products": "Products",
       "Profession": "Profession",
       "Proposed Amount": "Proposed Amount",
@@ -2524,9 +2696,21 @@
       "Scheduler Jobs": "Scheduler Jobs",
       "Schedule Date": "Schedule Date",
       "Score": "Score",
+      "NID": "NID",
+      "Legal Id": "Legal ID",
+      "Proof of address": "Proof of Address",
+      "Missing document": "Missing document",
+      "Illegible document": "Illegible document",
+      "Invalid document": "Invalid document",
+      "Expired document": "Expired document",
+      "Validation Status": "Validation Status",
+      "Data": "Data",
+      "INCOMPLETE": "INCOMPLETE",
+      "COMPLETE": "COMPLETE",
       "Screen Report": "Screen Report",
       "Search Client": "Search Client",
       "Search Journal Entries": "Search Journal Entries",
+      "Search Permissions": "Search Permissions",
       "Select Action": "Select Action",
       "Select Client Members for Transfer": "Select Client Members for Transfer",
       "Select Currency": "Select Currency",
@@ -2562,6 +2746,7 @@
       "Show Closed Groups": "Show Closed Groups",
       "Show Payment Details": "Show Payment Details",
       "Slab": "Slab",
+      "Range": "Range",
       "Specific to Installment": "Specific to Installment",
       "Staff": "Staff",
       "Standing Instruction": "Standing Instruction",
@@ -2637,6 +2822,7 @@
       "Total Interest Earned": "Total Interest Earned",
       "Total No. of Shares": "Total No. of Shares",
       "Total Number of Shares": "Total Number of Shares",
+      "Total Payment": "Total Payment",
       "Total Records": "Total Records",
       "Total Savings": "Total Savings",
       "Total Shares": "Total Shares",
@@ -2708,6 +2894,7 @@
       "View Journal Entry": "View Journal Entry",
       "View Report": "View Report",
       "View Signature": "View Signature",
+      "Volume": "Volume",
       "Waived": "Waived",
       "Website": "Website",
       "Wednesday": "Wednesday",
@@ -2839,7 +3026,8 @@
       "Period Payment Frequency": "Period Payment Frequency",
       "Period Payment Frequency Type": "Period Payment Frequency Type",
       "Payment Allocation Transactions": "Payment Allocation Transactions",
-      "Net Present Value day count": "Net Present Value Day Count"
+      "Net Present Value day count": "Net Present Value Day Count",
+      "Installment": "Installment"
     },
     "links": {
       "Community": "Community",
@@ -2872,6 +3060,7 @@
       "Approve": "Approve",
       "Assign Loan Officer": "Assign Loan Officer",
       "Attach Loan Originator": "Attach Loan Originator",
+      "Detach Loan Originator": "Detach Loan Originator",
       "Assign Staff": "Assign Staff",
       "Block Account": "Block Account",
       "Block Deposit": "Block Deposit",
@@ -2944,6 +3133,7 @@
       "Recovery Payment": "Recovery Payment",
       "Reject": "Reject",
       "Undo Write-off": "Undo Write-off",
+      "Update discount": "Update discount",
       "Reports": "Reports",
       "Reschedule": "Reschedule",
       "Savings": "Savings",
@@ -3039,6 +3229,7 @@
     },
     "text": {
       "About Us": "About Us",
+      "withoutCategory": "Without Category",
       "A": "A",
       "Account Transfers": "Account Transfers",
       "Ability to manage holidays for individual offices": "The ability to manage holidays for individual offices is a very useful tool for an organization spanning multiple locations.Use this option to customize holidays for each office of your organization.",
@@ -3098,6 +3289,7 @@
       "Audit Trails": "Audit Trails",
       "Audit logs of all the activities": "Audit logs of all the activities, such as create client, disburse loans etc",
       "Bar": "Bar",
+      "BIRT": "Mifos Reporting Plugin for Eclipse Birt",
       "Bulk Import": "Bulk Import",
       "Bulk Loan Reassignment": "Bulk Loan Reassignment",
       "Bulk data import using excel spreadsheet templates": "Bulk data import using excel spreadsheet templates for clients, offices, etc.",
@@ -3239,6 +3431,7 @@
       "Define Tax Groups": "Define Tax Groups",
       "Define Tax components": "Define Tax components",
       "Define Tax components and Tax groups": "Define Tax components and Tax groups",
+      "Define breaches for working capital products": "Define breaches for working capital products",
       "Define charges/penalties for loan products, savings and deposit products": "Define charges/penalties for loan products, savings and deposit products",
       "Define collaterals for Collateral Management": "Define collaterals for Collateral Management",
       "Define delinquency bucket as set of ranges": "Define delinquency bucket as set of ranges",
@@ -3334,6 +3527,7 @@
       "FilterByLoanIdOrError": "Filter by loan Id or error",
       "Fineract": "Apache Fineract®",
       "Fixed Deposit Account Charges": "Fixed Deposit Account Charges",
+      "Fixed Deposit Account Details": "Fixed Deposit Account Details",
       "Fixed Deposit Account Interest Rate Chart": "Fixed Deposit Account Interest Rate Chart",
       "Fixed Deposit Account Standing Instructions": "Fixed Deposit Account Standing Instructions",
       "Fixed Deposit Account Transactions": "Fixed Deposit Account Transactions",
@@ -3488,6 +3682,7 @@
       "LoanWithdrawnByApplicantBusinessEvent": "Loan Withdrawn By Applicant Business Event",
       "LoanWrittenOffPostBusinessEvent": "Loan Written Off Post Business Event",
       "LoanWrittenOffPreBusinessEvent": "Loan Written Off Pre Business Event",
+      "Loan Account Details": "Loan Account Details",
       "Loan Account Actions": "Loan Account Actions",
       "Loan Collateral Details": "Loan Collateral Details",
       "Loan Disbursal": "Loan Disbursal",
@@ -3498,6 +3693,8 @@
       "Loan Tranche Details": "Loan Tranche Details",
       "Loan Term Variations": "Loan Term Variations",
       "Loan View": "Loan View",
+      "Loan Originators": "Loan Originators",
+      "Loan Reschedules": "Loan Reschedules",
       "Loan products define the rules, default settings": "Loan products define the rules, default settings, and constraints for a financial institution's lending offerings. A loan product provides a template for multiple loan accounts for the financial institution's clients.",
       "Loan": "Loan",
       "Loans": "Loans",
@@ -3549,9 +3746,12 @@
       "No checker inbox data available for this search": "No checker inbox data available for this search.",
       "No client was found": "No client was found",
       "No data found": "No data found",
+      "No permissions found": "No permissions found",
+      "NonTriggered": "NonTriggered",
       "NoDocuments": "No documents available.",
       "NoFileSelected": "No file selected",
       "NoNotesAvailable": "No notes available",
+      "No Loan Product was found": "No Loan Product was found",
       "No loan locked available": "No loan locked available.",
       "No notifications": "No notifications",
       "No pending loan available for disbursal": "No pending loan available for disbursal.",
@@ -3575,7 +3775,7 @@
       "Passwords": "Passwords",
       "Pay Charge": "Pay Charge",
       "Payment Types": "Payment Types",
-      "Pentaho": "",
+      "Pentaho": "Mifos Reporting Plugin for Pentaho",
       "Periodic Accrual Accounting": "Periodic Accrual Accounting",
       "Pie": "Pie",
       "Please enter the OTP": "Please enter the OTP",
@@ -3597,6 +3797,7 @@
       "Precedes of": "Precedes of",
       "RecurringDepositAccountCreateBusinessEvent": "Recurring Deposit Account Create Business Event",
       "Recurring Deposit Account Charges": "Recurring Deposit Account Charges",
+      "Recurring Deposit Account Details": "Recurring Deposit Account Details",
       "Recurring Deposit Account Interest Rate Chart": "Recurring Deposit Account Interest Rate Chart",
       "Recurring Deposit Account Standing Instructions": "Recurring Deposit Account Standing Instructions",
       "Recurring Deposit Account Transactions": "Recurring Deposit Account Transactions",
@@ -3675,6 +3876,7 @@
       "Share Products Dividends": "Share Products Dividends",
       "Share products define the rules, default settings": "Share products define the rules, default settings, and constraints for a financial institution's Shares and dividends. A share product provides a template for multiple accounts that are or will be held by the financial institution's clients.",
       "Shares": "Shares",
+      "Shares Account Details": "Shares Account Details",
       "Shares Account Actions": "Shares Account Actions",
       "Shares Account Charges": "Shares Account Charges",
       "Shares Account Dividends": "Shares Account Dividends",
@@ -3697,6 +3899,7 @@
       "View system version, server and licensing information": "View system version, server and licensing information",
       "Table": "Table",
       "Tax Components": "Tax Components",
+      "Triggered": "Triggered",
       "tenant_app_key": "tenant_app_key",
       "Email": "Email",
       "Tellers": "Tellers",
@@ -3842,6 +4045,221 @@
       "Unable to load vendors. Please check your connection and try again.": "Unable to load vendors. Please check your connection and try again.",
       "Failed to update payment type. Please try again.": "Failed to update payment type. Please try again."
     },
+    "permissions": {
+      "actions": {
+        "ACCEPTTRANSFER": "Accept Transfer",
+        "ACTIVATE": "Activate",
+        "ADD": "Add",
+        "ADDCHARGE": "Add Charge",
+        "ADJUST": "Adjust",
+        "ADJUSTMENT": "Adjustment",
+        "ADJUSTTRANSACTION": "Adjust Transaction",
+        "ALLOCATECASHIER": "Allocate Cashier",
+        "APPLYADDITIONAL": "Apply Additional",
+        "APPLYANNUALFEE": "Apply Annual Fee",
+        "APPROVALUNDO": "Undo Approval",
+        "APPROVE": "Approve",
+        "APPROVEADDITIONAL": "Approve Additional",
+        "ASSIGNROLE": "Assign Role",
+        "ASSIGNSTAFF": "Assign Staff",
+        "ASSOCIATECLIENTS": "Associate Clients",
+        "ASSOCIATEGROUPS": "Associate Groups",
+        "ATTACH": "Attach",
+        "BLOCK": "Block",
+        "BLOCKDEPOSIT": "Block Deposit",
+        "BLOCKWITHDRAWAL": "Block Withdrawal",
+        "BULKREASSIGN": "Bulk Reassign",
+        "BUYDOWNFEE": "Buy Down Fee",
+        "CALCULATEINTEREST": "Calculate Interest",
+        "CAPITALIZEDINCOME": "Capitalized Income",
+        "CHARGEBACK": "Chargeback",
+        "CHARGEOFF": "Charge Off",
+        "CLOSE": "Close",
+        "CLOSEASRESCHEDULED": "Close as Rescheduled",
+        "CONTRACT_TERMINATION": "Contract Termination",
+        "CREATE": "Create",
+        "DEACTIVATE": "Deactivate",
+        "DEFINEOPENINGBALANCE": "Define Opening Balance",
+        "DELETE": "Delete",
+        "DELETECASHIER": "Delete Cashier",
+        "DEPOSIT": "Deposit",
+        "DETACH": "Detach",
+        "DISBURSALUNDO": "Undo Disbursal",
+        "DISBURSALLASTUNDO": "Undo Last Disbursal",
+        "DISBURSE": "Disburse",
+        "DISBURSETOSAVINGS": "Disburse to Savings",
+        "EXECUTE": "Execute",
+        "FORECLOSURE": "Foreclosure",
+        "HOLDAMOUNT": "Hold Amount",
+        "INACTIVATE": "Inactivate",
+        "PAY": "Pay",
+        "PERMISSIONS": "Permissions",
+        "POST": "Post",
+        "POSTINTEREST": "Post Interest",
+        "PREMATURECLOSE": "Premature Close",
+        "PROPOSETRANSFER": "Propose Transfer",
+        "REACTIVATE": "Reactivate",
+        "READ": "Read",
+        "REAGE": "Reage",
+        "REAGING": "Reaging",
+        "REAMORTIZE": "Reamortize",
+        "RECOVERGUARANTEES": "Recover Guarantees",
+        "RECOVERYPAYMENT": "Recovery Payment",
+        "REJECT": "Reject",
+        "REJECTADDITIONAL": "Reject Additional",
+        "RELEASEAMOUNT": "Release Amount",
+        "REMOVESAVINGSOFFICER": "Remove Savings Officer",
+        "REOPEN": "Reopen",
+        "REPAYMENT": "Repayment",
+        "RESCHEDULE": "Reschedule",
+        "REVERSE": "Reverse",
+        "SALE": "Sale",
+        "SAVEORUPDATEATTENDANCE": "Save or Update Attendance",
+        "SETTLECASHFROMCASHIER": "Settle Cash from Cashier",
+        "SETTLECASHIER": "Settle Cashier",
+        "TRANSFER": "Transfer",
+        "TRANSFERCLIENTS": "Transfer Clients",
+        "UNASSIGNROLE": "Unassign Role",
+        "UNASSIGNSTAFF": "Unassign Staff",
+        "UNBLOCK": "Unblock",
+        "UNBLOCKDEPOSIT": "Unblock Deposit",
+        "UNBLOCKWITHDRAWAL": "Unblock Withdrawal",
+        "UNDO": "Undo",
+        "UNDO_ACTIVATE": "Undo Activate",
+        "UNDO_REAGE": "Undo Reage",
+        "UNDO_REAMORTIZE": "Undo Reamortize",
+        "UNDOCHARGEOFF": "Undo Charge Off",
+        "UNDOTRANSACTION": "Undo Transaction",
+        "UNDOWRITEOFF": "Undo Write-Off",
+        "UPDATE": "Update",
+        "UPDATECASHIERALLOCATION": "Update Cashier Allocation",
+        "UPDATELOANOFFICER": "Update Loan Officer",
+        "UPDATESAVINGSACCOUNT": "Update Savings Account",
+        "UPDATESAVINGSOFFICER": "Update Savings Officer",
+        "UPDATEWITHHOLDTAX": "Update Withhold Tax",
+        "VIEW": "View",
+        "WAIVE": "Waive",
+        "WAIVEINTERESTPORTION": "Waive Interest Portion",
+        "WITHDRAW": "Withdraw",
+        "WITHDRAWAL": "Withdrawal",
+        "WRITEOFF": "Write-Off",
+        "ALL": "All",
+        "BYPASS": "Bypass",
+        "CHECKER": "Checker",
+        "REPORTING": "Reporting"
+      },
+      "entities": {
+        "ACCOUNTINGRULE": "Accounting Rule",
+        "ACCOUNTNUMBERFORMAT": "Account Number Format",
+        "ACCOUNTTRANSFER": "Account Transfer",
+        "ADHOC": "Ad Hoc",
+        "BUSINESSDATE": "Business Date",
+        "CASHIER": "Cashier",
+        "CASHIERS_FOR_TELLER": "Cashiers for Teller",
+        "CENTER": "Center",
+        "CENTERS": "Centers",
+        "CHARGE": "Charge",
+        "CLIENT": "Client",
+        "CLIENTCHARGE": "Client Charge",
+        "CLIENTIDENTIFIER": "Client Identifier",
+        "CLIENTIMAGE": "Client Image",
+        "CLIENT_COLLATERAL_PRODUCT": "Client Collateral Product",
+        "CLIENTS": "Clients",
+        "CODE": "Code",
+        "CODEVALUE": "Code Value",
+        "COLLATERAL": "Collateral",
+        "COLLECTIONSHEET": "Collection Sheet",
+        "CONFIG_WIZARD": "Config Wizard",
+        "CONFIGURATION": "Configuration",
+        "CREDIT_BALANCE_REFUND": "Credit Balance Refund",
+        "CRITERIA": "Criteria",
+        "CURRENCY": "Currency",
+        "DATATABLE": "Data Table",
+        "DELINQUENCY_ACTION": "Delinquency Action",
+        "DELINQUENCY_BUCKET": "Delinquency Bucket",
+        "DELINQUENCY_RANGE": "Delinquency Range",
+        "DIVIDENDS": "Dividends",
+        "DOCUMENT": "Document",
+        "EMPLOYEE": "Employee",
+        "ENTITYMAPPING": "Entity Mapping",
+        "ENTITY_DATATABLE_CHECK": "Entity Data Table Check",
+        "EXTERNAL_EVENT_CONFIGURATION": "External Event Configuration",
+        "FINANCIALACTIVITYACCOUNT": "Financial Activity Account",
+        "FIXEDDEPOSITACCOUNT": "Fixed Deposit Account",
+        "FIXEDDEPOSITPRODUCT": "Fixed Deposit Product",
+        "FLOATINGRATE": "Floating Rate",
+        "FUND": "Fund",
+        "GLACCOUNT": "GL Account",
+        "GLCLOSURE": "GL Closure",
+        "GOODWILL_TRANSACTION": "Goodwill Transaction",
+        "GROUP": "Group",
+        "GROUPNOTE": "Group Note",
+        "GROUPS": "Groups",
+        "GSIMACCOUNT": "GSIM Account",
+        "GUARANTOR": "Guarantor",
+        "HOLIDAY": "Holiday",
+        "HOOK": "Hook",
+        "INLINE_JOB": "Inline Job",
+        "INTEREST_PAUSE": "Interest Pause",
+        "INTERESTPAYMENTWAIVER_TRANSACTION": "Interest Payment Waiver Transaction",
+        "JOURNAL_ENTRY": "Journal Entry",
+        "JOURNALENTRY": "Journal Entry",
+        "LOAN": "Loan",
+        "LOANCHARGE": "Loan Charge",
+        "LOANNOTE": "Loan Note",
+        "LOANPRODUCT": "Loan Product",
+        "LOANRESCHEDULE": "Loan Reschedule",
+        "LOAN_ORIGINATOR": "Loan Originator",
+        "MAKERCHECKER": "Maker Checker",
+        "MEETING": "Meeting",
+        "MERCHANT_ISSUED_REFUND": "Merchant Issued Refund",
+        "NOTIFICATION": "Notification",
+        "OFFICE": "Office",
+        "OFFICES": "Offices",
+        "PASSWORD_VALIDATION_POLICY": "Password Validation Policy",
+        "PAYOUT_REFUND": "Payout Refund",
+        "PAYMENTTYPE": "Payment Type",
+        "PERIODICACCRUALACCOUNTING": "Periodic Accrual Accounting",
+        "PERMISSION": "Permission",
+        "PREFERENCES": "Preferences",
+        "PRODUCT": "Product",
+        "PRODUCTMIX": "Product Mix",
+        "PROVISIONING_CRITERIA": "Provisioning Criteria",
+        "PROVISIONING_ENTRIES": "Provisioning Entries",
+        "RECURRINGDEPOSITACCOUNT": "Recurring Deposit Account",
+        "RECURRINGDEPOSITPRODUCT": "Recurring Deposit Product",
+        "REPAYMENT_SCHEDULE": "Repayment Schedule",
+        "REPORT": "Report",
+        "RESCHEDULELOAN": "Reschedule Loan",
+        "ROLE": "Role",
+        "SAVINGNOTE": "Saving Note",
+        "SAVINGSACCOUNT": "Savings Account",
+        "SAVINGSACCOUNTCHARGE": "Savings Account Charge",
+        "SAVINGSNOTE": "Savings Note",
+        "SAVINGSPRODUCT": "Savings Product",
+        "SCHEDULER": "Scheduler",
+        "SHAREACCOUNT": "Share Account",
+        "SHAREACCOUNTCHARGE": "Share Account Charge",
+        "SHAREACCOUNTDIVIDENDS": "Share Account Dividends",
+        "SHAREACCOUNTPURCHASE": "Share Account Purchase",
+        "SHAREDIVIDEND": "Share Dividend",
+        "SHAREPRODUCT": "Share Product",
+        "SHARESACCOUNTCHARGE": "Shares Account Charge",
+        "SMSCAMPAIGN": "SMS Campaign",
+        "SSBENEFICIARYTPT": "Self Service Beneficiaries TPT",
+        "STAFF": "Staff",
+        "STANDINGINSTRUCTION": "Standing Instruction",
+        "TAXCOMPONENT": "Tax Component",
+        "TAXGROUP": "Tax Group",
+        "TELLER": "Teller",
+        "TEMPLATE": "Template",
+        "USER": "User",
+        "FUNCTIONS": "Functions",
+        "TWOFACTOR": "Two-Factor",
+        "SUPER_USER": "Super User",
+        "WORKINGDAYS": "Working Days"
+      }
+    },
     "auditTrail": {
       "actions": {
         "CREATE": "Create",
@@ -3908,19 +4326,22 @@
     },
     "messages": {
       "No Data Found": "No Data Found",
-      "No Upcoming Charges Available": "No Upcoming Charges Available",
-      "No Active Loan Accounts Available": "No Active Loan Accounts Available",
-      "No Closed Loan Accounts Available": "No Closed Loan Accounts Available",
-      "No Active Saving Accounts Available": "No Active Saving Accounts Available",
-      "No Closed Saving Accounts Available": "No Closed Saving Accounts Available",
-      "No Active Fixed Deposit Accounts Available": "No Active Fixed Deposit Accounts Available",
-      "No Closed Fixed Deposit Accounts Available": "No Closed Fixed Deposit Accounts Available",
-      "No Active Recurring Deposit Accounts Available": "No Active Recurring Deposit Accounts Available",
-      "No Closed Recurring Deposit Accounts Available": "No Closed Recurring Deposit Accounts Available",
-      "No Active Share Accounts Available": "No Active Share Accounts Available",
-      "No Closed Share Accounts Available": "No Closed Share Accounts Available",
-      "No Collateral Data Available": "No Collateral Data Available",
-      "No Identities Available": "No Identities Available"
+      "No Upcoming Charges Found": "No Upcoming Charges Found",
+      "No Active Loan Accounts Found": "No Active Loan Accounts Found",
+      "No Closed Loan Accounts Found": "No Closed Loan Accounts Found",
+      "No Active Saving Accounts Found": "No Active Saving Accounts Found",
+      "No Closed Saving Accounts Found": "No Closed Saving Accounts Found",
+      "No Active Fixed Deposit Accounts Found": "No Active Fixed Deposit Accounts Found",
+      "No Closed Fixed Deposit Accounts Found": "No Closed Fixed Deposit Accounts Found",
+      "No Active Recurring Deposit Accounts Found": "No Active Recurring Deposit Accounts Found",
+      "No Closed Recurring Deposit Accounts Found": "No Closed Recurring Deposit Accounts Found",
+      "No Active Share Accounts Found": "No Active Share Accounts Found",
+      "No Closed Share Accounts Found": "No Closed Share Accounts Found",
+      "No Collateral Data Found": "No Collateral Data Found",
+      "No Identities Found": "No Identities Found",
+      "validationSaved": "Validation data saved successfully.",
+      "workingCapitalDiscountUpdated": "Working capital discount was updated successfully.",
+      "unableToUpdateDiscount": "Unable to update discount."
     }
   },
   "languages": {
@@ -4258,5 +4679,59 @@
     "YE": "Yemen",
     "ZM": "Zambia",
     "ZW": "Zimbabwe"
+  },
+  "clients": {
+    "actions": {
+      "close": {
+        "success": "Client closed successfully."
+      },
+      "reject": {
+        "success": "Client rejected successfully."
+      },
+      "withdraw": {
+        "success": "Client withdrawn successfully."
+      },
+      "reactivate": {
+        "success": "Client reactivated successfully.",
+        "failure": "Failed to reactivate client."
+      },
+      "activate": {
+        "success": "Client activated successfully.",
+        "failure": "Failed to activate client."
+      },
+      "acceptTransfer": {
+        "success": "Client transfer accepted successfully."
+      },
+      "rejectTransfer": {
+        "success": "Client transfer rejected successfully."
+      },
+      "undoTransfer": {
+        "success": "Client transfer undone successfully."
+      },
+      "undoRejection": {
+        "success": "Client rejection undone successfully."
+      },
+      "transfer": {
+        "success": "Client transfer proposed successfully.",
+        "failure": "Failed to propose client transfer."
+      },
+      "addCharge": {
+        "success": "Client charge added successfully."
+      },
+      "addCollateral": {
+        "success": "Client collateral added successfully."
+      },
+      "assignStaff": {
+        "success": "Staff assigned to client successfully.",
+        "failure": "Failed to assign staff to client."
+      },
+      "updateSavingsAccount": {
+        "success": "Client savings account updated successfully."
+      },
+      "takeSurvey": {
+        "success": "Survey submitted successfully.",
+        "failure": "Failed to submit survey."
+      }
+    }
   }
 }
